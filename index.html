@@ -191,13 +191,7 @@ var DIAS = [
       {title:"Colombianas vs. Españolas",tipo:"Q&A — El Filmmaker te pregunta",ilus:"svgQA",gancho:"Alex...¿cuál es la principal diferencia entre la mujer Colombiana y la mujer Española?",ref:"",editorPone:false,steps:["Explicás la diferencia dando un ejemplo concreto"],items:[]}
     ]
   }
-,
-  {
-    fecha: "Miércoles 8 de abril",
-    videos: [
-      {title:"qqw",ref:"https://drive.google.com/file/d/1hVtxxLFA5Ua_wkmscxTXlwMmYfPYFWOp/view?usp=sharing",tipo:"Mirás directo a la cámara",ilus:"svgLookFilmmaker",gancho:"dkeke",editorPone:false,steps:["dee"],items:[]}
-    ]
-  }
+
 ,
   {
     fecha: "Miércoles 8 de abril",
@@ -212,7 +206,7 @@ var DIAS = [
 
 // ─── STATE ────────────────────────────────────────────────────
 var curDay = 0, curVid = 0;
-var done = {}; // done[dayIdx][vidIdx] = true
+var done = JSON.parse(localStorage.getItem('pg_done') || '{}'); // persists across refreshes
 
 function isDayDone(d){
   var vids = DIAS[d].videos;
@@ -353,6 +347,7 @@ document.addEventListener('click', function(e){
     var vi = parseInt(t.dataset.i);
     if(!done[curDay]) done[curDay]={};
     done[curDay][vi] = true;
+    localStorage.setItem('pg_done', JSON.stringify(done));
     var total = DIAS[curDay].videos.length;
     if(vi===total-1){
       document.getElementById('finSub').textContent = '¡Terminaste todos los videos del '+DIAS[curDay].fecha+'!';
