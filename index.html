@@ -1,8 +1,10 @@
-<html lang="es"><head>
+<!DOCTYPE html>
+<html lang="es">
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>Plan de Grabación</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&amp;family=DM+Sans:wght@400;500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 :root{--bg:#0a0a0a;--card:#181818;--card2:#1e1e1e;--border:rgba(255,255,255,0.09);--text:#f0f0f0;--muted:#666;--accent:#c8f135;--red:#ff4444;}
@@ -105,7 +107,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min
 .pin-del{font-size:18px;}
 .pin-error{color:var(--red);font-size:13px;min-height:18px;}
 
-#admin{padding:0;max-width:480px;margin:0 auto;}
+#admin{padding:0;max-width:480px;margin:0 auto;display:none;}
 #admin.active{display:block;}
 .admin-topbar{position:sticky;top:0;z-index:50;background:rgba(10,10,10,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:10px 16px;gap:12px;}
 .admin-title{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;flex:1;color:var(--accent);}
@@ -165,34 +167,34 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min
 </head>
 <body>
 
-<div id="splash" class="screen">
+<div id="splash" class="screen active">
   <div class="logo">Plan de<br><span>Grabación</span></div>
   <div class="splash-sub">Tocá un día para ver los videos</div>
-  <div class="days-list" id="daysList"><div class="day-card" data-day="0"><div class="day-left"><div class="day-date">Lunes 6 de abril</div><div class="day-count">21 videos · 0 grabados</div></div><div class="day-badge">0/21</div></div><div class="day-card today" data-day="1"><div class="day-left"><div class="today-tag">● Hoy</div><div class="day-date">Miércoles 8 de abril</div><div class="day-count">4 videos · 0 grabados</div></div><div class="day-badge">0/4</div></div><div class="day-card" data-day="2"><div class="day-left"><div class="day-date">Jueves 9 de abril</div><div class="day-count">1 videos · 0 grabados</div></div><div class="day-badge">0/1</div></div></div>
+  <div class="days-list" id="daysList"></div>
 </div>
 
 <div id="vlist" class="screen">
   <div class="topbar">
     <button class="back" id="vlistBack">← Días</button>
-    <div class="topbar-title" id="vlistTitle">Jueves 9 de abril</div>
+    <div class="topbar-title" id="vlistTitle"></div>
     <div class="prog-wrap">
-      <div class="prog-lbl" id="vlistProg">0/1</div>
+      <div class="prog-lbl" id="vlistProg"></div>
       <div class="prog-bg"><div class="prog-fill" id="vlistFill" style="width:0%"></div></div>
     </div>
   </div>
-  <div class="vlist" id="vlistContent"><div class="vlist-header"><div class="vlist-date">Jueves 9 de abril</div><div class="vlist-sub">1 videos para grabar</div></div><div class="vitem" data-vi="0"><div class="vitem-num">1</div><div class="vitem-info"><div class="vitem-title">5 mejores ciudades de Colombia</div><div class="vitem-tag">Alguien te graba — mirás al Filmmaker</div></div><div class="vitem-check">›</div></div></div>
+  <div class="vlist" id="vlistContent"></div>
 </div>
 
 <div id="viewer" class="screen">
   <div class="topbar">
     <button class="back" id="viewerBack">← Lista</button>
-    <div class="topbar-title" id="viewerTitle">Jueves 9 de abril</div>
+    <div class="topbar-title" id="viewerTitle"></div>
     <div class="prog-wrap">
-      <div class="prog-lbl" id="progLbl">1/1</div>
-      <div class="prog-bg"><div class="prog-fill" id="progFill" style="width: 100%;"></div></div>
+      <div class="prog-lbl" id="progLbl"></div>
+      <div class="prog-bg"><div class="prog-fill" id="progFill" style="width:0%"></div></div>
     </div>
   </div>
-  <div class="vcontent" id="vcontent"><div class="vnum">Video 1 de 1</div><div class="vtitle">5 mejores ciudades de Colombia</div><div class="ref-box"><div class="ref-lbl">📺 Video de referencia</div><a class="ref-link" href="https://drive.google.com/file/d/1dO8ljBkk1mtlXxTZuVnO9htLPz6VfSQA/view?usp=sharing" target="_blank">▶ Ver video</a></div><div class="preview-box"><div class="preview-lbl">Así se graba</div><img src="data:image/jpeg;base64,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" style="width:100%;display:block;border-radius:0 0 14px 14px;object-fit:cover;max-height:280px;"></div><div class="setup-pill"><span class="setup-icon">🎥</span><span class="setup-txt">Alguien te graba — mirás al Filmmaker</span></div><div class="hook-card"><div class="hook-lbl">Gancho</div><div class="hook-txt">Las mejores 5 ciudades de Colombia son...</div></div><div class="action-card"><div class="action-lbl">Qué hacés</div><div class="action-line"><span class="astep">1</span><span>Di que has estado visitando Colombia por 5 años</span></div><div class="action-line"><span class="astep">2</span><span>Y menciona CADA ciudad del TOP 5 de menos a más</span></div></div><div class="nav-row"><button class="btn-next" data-a="next" data-i="0">✓ Último del día</button></div></div>
+  <div class="vcontent" id="vcontent"></div>
 </div>
 
 <div id="finish" class="screen">
@@ -204,14 +206,14 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min
 
 
 <!-- ADMIN PIN -->
-<div id="adminPin" class="">
+<div id="adminPin">
   <div class="pin-title">Modo Admin</div>
   <div class="pin-sub">Ingresá el PIN</div>
   <div class="pin-dots" id="pinDots">
-    <div class="pin-dot filled"></div>
-    <div class="pin-dot filled"></div>
-    <div class="pin-dot filled"></div>
-    <div class="pin-dot filled"></div>
+    <div class="pin-dot"></div>
+    <div class="pin-dot"></div>
+    <div class="pin-dot"></div>
+    <div class="pin-dot"></div>
   </div>
   <div class="pin-error" id="pinError"></div>
   <div class="pin-pad">
@@ -232,16 +234,16 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min
 </div>
 
 <!-- ADMIN PANEL -->
-<div id="admin" class="screen active">
+<div id="admin" class="screen">
   <div class="admin-topbar">
     <div class="admin-title">⚙️ Admin</div>
     <button class="admin-export" id="adminExport">⬇ Exportar</button>
     <button class="admin-exit" id="adminExit">← Salir</button>
   </div>
   <div class="admin-body">
-    <div id="adminDaysList"><div class="admin-day" data-di="0"><div class="admin-day-header" data-toggle="0"><div class="admin-day-date">Lunes 6 de abril</div><div class="admin-day-count">21 videos</div><button class="admin-day-del" data-daydel="0">✕</button><span class="admin-day-toggle" id="toggle-0">▼</span></div><div class="admin-videos" id="avids-0"><div class="admin-video"><div class="admin-video-num">1</div><div class="admin-video-info"><div class="admin-video-title">Opinión polémica (v1)</div><div class="admin-video-sub">Alguien te graba — mirás al Filmmaker</div></div><button class="admin-video-edit" data-di="0" data-vi="0">Editar</button><button class="admin-video-del" data-di="0" data-vi="0">✕</button></div><div class="admin-video"><div class="admin-video-num">2</div><div class="admin-video-info"><div class="admin-video-title">Opinión polémica (v2)</div><div class="admin-video-sub">Alguien te graba — mirás al Filmmaker</div></div><button class="admin-video-edit" data-di="0" data-vi="1">Editar</button><button class="admin-video-del" data-di="0" data-vi="1">✕</button></div><div class="admin-video"><div class="admin-video-num">3</div><div class="admin-video-info"><div class="admin-video-title">¿Qué opinas de esto?</div><div class="admin-video-sub">Q&amp;A — El Filmmaker te pregunta</div></div><button class="admin-video-edit" data-di="0" data-vi="2">Editar</button><button class="admin-video-del" data-di="0" data-vi="2">✕</button></div><div class="admin-video"><div class="admin-video-num">4</div><div class="admin-video-info"><div class="admin-video-title">Paradoja de Pinocho</div><div class="admin-video-sub">Alguien te graba — mirás al Filmmaker</div></div><button class="admin-video-edit" data-di="0" data-vi="3">Editar</button><button class="admin-video-del" data-di="0" data-vi="3">✕</button></div><div class="admin-video"><div class="admin-video-num">5</div><div class="admin-video-info"><div class="admin-video-title">Reputación de las Colombianas (v1)</div><div class="admin-video-sub">Q&amp;A — El Filmmaker te pregunta</div></div><button class="admin-video-edit" data-di="0" data-vi="4">Editar</button><button class="admin-video-del" data-di="0" data-vi="4">✕</button></div><div class="admin-video"><div class="admin-video-num">6</div><div class="admin-video-info"><div class="admin-video-title">Reputación de las Colombianas (v2)</div><div class="admin-video-sub">Q&amp;A — El Filmmaker te pregunta</div></div><button class="admin-video-edit" data-di="0" data-vi="5">Editar</button><button class="admin-video-del" data-di="0" data-vi="5">✕</button></div><div class="admin-video"><div class="admin-video-num">7</div><div class="admin-video-info"><div class="admin-video-title">Mujer infiel</div><div class="admin-video-sub">Q&amp;A — El Filmmaker te pregunta</div></div><button class="admin-video-edit" data-di="0" data-vi="6">Editar</button><button class="admin-video-del" data-di="0" data-vi="6">✕</button></div><div class="admin-video"><div class="admin-video-num">8</div><div class="admin-video-info"><div class="admin-video-title">Hombre vs. mujer infiel</div><div class="admin-video-sub">Q&amp;A — El Filmmaker te pregunta</div></div><button class="admin-video-edit" data-di="0" data-vi="7">Editar</button><button class="admin-video-del" data-di="0" data-vi="7">✕</button></div><div class="admin-video"><div class="admin-video-num">9</div><div class="admin-video-info"><div class="admin-video-title">Mujer comete infidelidad</div><div class="admin-video-sub">Alguien te graba — mirás al Filmmaker</div></div><button class="admin-video-edit" data-di="0" data-vi="8">Editar</button><button class="admin-video-del" data-di="0" data-vi="8">✕</button></div><div class="admin-video"><div class="admin-video-num">10</div><div class="admin-video-info"><div class="admin-video-title">3 formas de manipular</div><div class="admin-video-sub">Alguien te graba — mirás al Filmmaker</div></div><button class="admin-video-edit" data-di="0" data-vi="9">Editar</button><button class="admin-video-del" data-di="0" data-vi="9">✕</button></div><div class="admin-video"><div class="admin-video-num">11</div><div class="admin-video-info"><div class="admin-video-title">Españolas vs. Colombianas</div><div class="admin-video-sub">Q&amp;A — El Filmmaker te pregunta</div></div><button class="admin-video-edit" data-di="0" data-vi="10">Editar</button><button class="admin-video-del" data-di="0" data-vi="10">✕</button></div><div class="admin-video"><div class="admin-video-num">12</div><div class="admin-video-info"><div class="admin-video-title">Mejores comidas de Colombia</div><div class="admin-video-sub">Q&amp;A — El Filmmaker te pregunta</div></div><button class="admin-video-edit" data-di="0" data-vi="11">Editar</button><button class="admin-video-del" data-di="0" data-vi="11">✕</button></div><div class="admin-video"><div class="admin-video-num">13</div><div class="admin-video-info"><div class="admin-video-title">El Sancocho</div><div class="admin-video-sub">Q&amp;A — El Filmmaker te pregunta</div></div><button class="admin-video-edit" data-di="0" data-vi="12">Editar</button><button class="admin-video-del" data-di="0" data-vi="12">✕</button></div><div class="admin-video"><div class="admin-video-num">14</div><div class="admin-video-info"><div class="admin-video-title">Mejores países para vivir</div><div class="admin-video-sub">Q&amp;A — El Filmmaker te pregunta</div></div><button class="admin-video-edit" data-di="0" data-vi="13">Editar</button><button class="admin-video-del" data-di="0" data-vi="13">✕</button></div><div class="admin-video"><div class="admin-video-num">15</div><div class="admin-video-info"><div class="admin-video-title">Emprender en Colombia</div><div class="admin-video-sub">Q&amp;A — El Filmmaker te pregunta</div></div><button class="admin-video-edit" data-di="0" data-vi="14">Editar</button><button class="admin-video-del" data-di="0" data-vi="14">✕</button></div><div class="admin-video"><div class="admin-video-num">16</div><div class="admin-video-info"><div class="admin-video-title">Pros y Contras de Medellín</div><div class="admin-video-sub">Q&amp;A — El Filmmaker te pregunta</div></div><button class="admin-video-edit" data-di="0" data-vi="15">Editar</button><button class="admin-video-del" data-di="0" data-vi="15">✕</button></div><div class="admin-video"><div class="admin-video-num">17</div><div class="admin-video-info"><div class="admin-video-title">Puntuación ciudades de Colombia</div><div class="admin-video-sub">Q&amp;A — El Filmmaker te pregunta</div></div><button class="admin-video-edit" data-di="0" data-vi="16">Editar</button><button class="admin-video-del" data-di="0" data-vi="16">✕</button></div><div class="admin-video"><div class="admin-video-num">18</div><div class="admin-video-info"><div class="admin-video-title">ROLO vs. PAISA</div><div class="admin-video-sub">Q&amp;A — El Filmmaker te pregunta</div></div><button class="admin-video-edit" data-di="0" data-vi="17">Editar</button><button class="admin-video-del" data-di="0" data-vi="17">✕</button></div><div class="admin-video"><div class="admin-video-num">19</div><div class="admin-video-info"><div class="admin-video-title">Bogotá vs. Medellín</div><div class="admin-video-sub">Q&amp;A — El Filmmaker te pregunta</div></div><button class="admin-video-edit" data-di="0" data-vi="18">Editar</button><button class="admin-video-del" data-di="0" data-vi="18">✕</button></div><div class="admin-video"><div class="admin-video-num">20</div><div class="admin-video-info"><div class="admin-video-title">Mejores ciudades de Colombia</div><div class="admin-video-sub">Q&amp;A — El Filmmaker te pregunta</div></div><button class="admin-video-edit" data-di="0" data-vi="19">Editar</button><button class="admin-video-del" data-di="0" data-vi="19">✕</button></div><div class="admin-video"><div class="admin-video-num">21</div><div class="admin-video-info"><div class="admin-video-title">Colombianas vs. Españolas</div><div class="admin-video-sub">Q&amp;A — El Filmmaker te pregunta</div></div><button class="admin-video-edit" data-di="0" data-vi="20">Editar</button><button class="admin-video-del" data-di="0" data-vi="20">✕</button></div><div style="padding:.75rem 1.1rem;border-top:1px solid var(--border);"><button class="admin-btn" data-addvid="0" style="width:100%;padding:10px;font-size:13px;">+ Agregar video a este día</button></div></div></div><div class="admin-day" data-di="1"><div class="admin-day-header" data-toggle="1"><div class="admin-day-date">Miércoles 8 de abril</div><div class="admin-day-count">4 videos</div><button class="admin-day-del" data-daydel="1">✕</button><span class="admin-day-toggle" id="toggle-1">▼</span></div><div class="admin-videos" id="avids-1"><div class="admin-video"><div class="admin-video-num">1</div><div class="admin-video-info"><div class="admin-video-title">Bogotá vs. Medellín</div><div class="admin-video-sub">Q&amp;A — El Filmmaker te pregunta</div></div><button class="admin-video-edit" data-di="1" data-vi="0">Editar</button><button class="admin-video-del" data-di="1" data-vi="0">✕</button></div><div class="admin-video"><div class="admin-video-num">2</div><div class="admin-video-info"><div class="admin-video-title">MIEDO = A, B o C</div><div class="admin-video-sub">Mirás directo a la cámara</div></div><button class="admin-video-edit" data-di="1" data-vi="1">Editar</button><button class="admin-video-del" data-di="1" data-vi="1">✕</button></div><div class="admin-video"><div class="admin-video-num">3</div><div class="admin-video-info"><div class="admin-video-title">¿Qué preferís?</div><div class="admin-video-sub">Entrevista callejera</div></div><button class="admin-video-edit" data-di="1" data-vi="2">Editar</button><button class="admin-video-del" data-di="1" data-vi="2">✕</button></div><div class="admin-video"><div class="admin-video-num">4</div><div class="admin-video-info"><div class="admin-video-title">Explicar el ÉXITO</div><div class="admin-video-sub">Mirás directo a la cámara</div></div><button class="admin-video-edit" data-di="1" data-vi="3">Editar</button><button class="admin-video-del" data-di="1" data-vi="3">✕</button></div><div style="padding:.75rem 1.1rem;border-top:1px solid var(--border);"><button class="admin-btn" data-addvid="1" style="width:100%;padding:10px;font-size:13px;">+ Agregar video a este día</button></div></div></div><div class="admin-day" data-di="2"><div class="admin-day-header" data-toggle="2"><div class="admin-day-date">Jueves 9 de abril</div><div class="admin-day-count">1 videos</div><button class="admin-day-del" data-daydel="2">✕</button><span class="admin-day-toggle" id="toggle-2">▼</span></div><div class="admin-videos" id="avids-2"><div class="admin-video"><div class="admin-video-num">1</div><div class="admin-video-info"><div class="admin-video-title">5 mejores ciudades de Colombia</div><div class="admin-video-sub">Alguien te graba — mirás al Filmmaker</div></div><button class="admin-video-edit" data-di="2" data-vi="0">Editar</button><button class="admin-video-del" data-di="2" data-vi="0">✕</button></div><div style="padding:.75rem 1.1rem;border-top:1px solid var(--border);"><button class="admin-btn" data-addvid="2" style="width:100%;padding:10px;font-size:13px;">+ Agregar video a este día</button></div></div></div></div>
+    <div id="adminDaysList"></div>
     <div class="admin-add-day">
-      <input class="admin-input" id="adminNewDayInput" placeholder="Nuevo día (ej: Jueves 10 de abril)" type="text">
+      <input class="admin-input" id="adminNewDayInput" placeholder="Nuevo día (ej: Jueves 10 de abril)" type="text"/>
       <button class="admin-btn" id="adminAddDayBtn">+ Día</button>
     </div>
   </div>
@@ -261,14 +263,14 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min
     </div>
     <div class="af-section">
       <div class="af-label">Video de referencia (link Drive)</div>
-      <input class="af-input" id="afRef" placeholder="https://drive.google.com/..." type="url" style="min-height:44px;resize:none;">
+      <input class="af-input" id="afRef" placeholder="https://drive.google.com/..." type="url" style="min-height:44px;resize:none;"/>
     </div>
     <div class="af-section">
       <div class="af-label">Tipo de grabación *</div>
       <div class="af-opts" id="afTipo">
         <button class="af-opt" data-val="Alguien te graba — mirás al Filmmaker">🎥 Alguien te graba</button>
         <button class="af-opt" data-val="Mirás directo a la cámara">👁 Directo a cámara</button>
-        <button class="af-opt" data-val="Q&amp;A — El Filmmaker te pregunta">🎙 Q&amp;A</button>
+        <button class="af-opt" data-val="Q&A — El Filmmaker te pregunta">🎙 Q&A</button>
         <button class="af-opt" data-val="Señalás con el dedo hacia arriba">☝️ Señalar arriba</button>
         <button class="af-opt" data-val="POV — cámara es el punto de vista">🎥 POV</button>
         <button class="af-opt" data-val="Reaction">😮 Reaction</button>
@@ -311,7 +313,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min
     <div class="af-section">
       <div class="af-label">Ítems (si hay lista)</div>
       <div class="af-tag-row">
-        <input class="af-tag-input" id="afItemInput" placeholder="Escribí un ítem y tocá +" type="text">
+        <input class="af-tag-input" id="afItemInput" placeholder="Escribí un ítem y tocá +" type="text"/>
         <button class="af-add-tag" id="afAddItem">+</button>
       </div>
       <div class="af-tags" id="afItemsList"></div>
@@ -356,348 +358,40 @@ function getSvg(k){
 // ─── DATA — AGREGAR DÍAS Y VIDEOS ACÁ ────────────────────────
 var DIAS = [
   {
-    "fecha": "Lunes 6 de abril",
-    "videos": [
-      {
-        "title": "Opinión polémica (v1)",
-        "tipo": "Alguien te graba — mirás al Filmmaker",
-        "ilus": "svgLookFilmmaker",
-        "gancho": "Lo mejor que le podría pasar a un hombre es que la mujer lo deje.",
-        "ref": "",
-        "editorPone": false,
-        "steps": [
-          "Decís el gancho exacto",
-          "Explicás con tus palabras por qué creés esto"
-        ],
-        "items": []
-      },
-      {
-        "title": "Opinión polémica (v2)",
-        "tipo": "Alguien te graba — mirás al Filmmaker",
-        "ilus": "svgLookFilmmaker",
-        "gancho": "Si quieres que una mujer te deje dile... Amor, perdí todo. Estoy en bancarrota.",
-        "ref": "",
-        "editorPone": false,
-        "steps": [
-          "Si Alex está de acuerdo con esto, explicás por qué"
-        ],
-        "items": []
-      },
-      {
-        "title": "¿Qué opinas de esto?",
-        "tipo": "Q&A — El Filmmaker te pregunta",
-        "ilus": "svgQA",
-        "gancho": "Alex...¿qué opinas de eso que dicen los hombres que las mujeres le dan paz mental?",
-        "ref": "",
-        "editorPone": false,
-        "steps": [
-          "Respondés la pregunta justificando lógicamente tu respuesta"
-        ],
-        "items": []
-      },
-      {
-        "title": "Paradoja de Pinocho",
-        "tipo": "Alguien te graba — mirás al Filmmaker",
-        "ilus": "svgLookFilmmaker",
-        "gancho": "¿Sabes cuál es la paradoja de Pinocho?",
-        "ref": "",
-        "editorPone": false,
-        "steps": [
-          "Explicás la paradoja de Pinocho"
-        ],
-        "items": []
-      },
-      {
-        "title": "Reputación de las Colombianas (v1)",
-        "tipo": "Q&A — El Filmmaker te pregunta",
-        "ilus": "svgQA",
-        "gancho": "Alex...¿tú crees que las Colombianas tienen la reputación por el suelo?",
-        "ref": "",
-        "editorPone": false,
-        "steps": [
-          "Explicás por qué las Colombianas tienen la reputación por el suelo"
-        ],
-        "items": []
-      },
-      {
-        "title": "Reputación de las Colombianas (v2)",
-        "tipo": "Q&A — El Filmmaker te pregunta",
-        "ilus": "svgQA",
-        "gancho": "Alex...¿tú crees que las Colombianas tienen mala \"FAMA\" o mala \"REPUTACIÓN\"?",
-        "ref": "",
-        "editorPone": false,
-        "steps": [
-          "Explicás por qué las Colombianas tienen mala REPUTACIÓN"
-        ],
-        "items": []
-      },
-      {
-        "title": "Mujer infiel",
-        "tipo": "Q&A — El Filmmaker te pregunta",
-        "ilus": "svgQA",
-        "gancho": "Alex...¿qué opinas de una mujer infiel?",
-        "ref": "",
-        "editorPone": false,
-        "steps": [
-          "Explicás qué significa que una mujer haya sido infiel"
-        ],
-        "items": []
-      },
-      {
-        "title": "Hombre vs. mujer infiel",
-        "tipo": "Q&A — El Filmmaker te pregunta",
-        "ilus": "svgQA",
-        "gancho": "Alex...¿quién es más infiel...el hombre o la mujer?",
-        "ref": "",
-        "editorPone": false,
-        "steps": [
-          "Decís quién es más infiel",
-          "Explicás por qué"
-        ],
-        "items": []
-      },
-      {
-        "title": "Mujer comete infidelidad",
-        "tipo": "Alguien te graba — mirás al Filmmaker",
-        "ilus": "svgLookFilmmaker",
-        "gancho": "La mujer para cometer una infidelidad tiene que haberlo meditado mucho...",
-        "ref": "",
-        "editorPone": false,
-        "steps": [
-          "Explicás la diferencia entre infidelidad femenina vs masculina"
-        ],
-        "items": []
-      },
-      {
-        "title": "3 formas de manipular",
-        "tipo": "Alguien te graba — mirás al Filmmaker",
-        "ilus": "svgLookFilmmaker",
-        "gancho": "Te recomiendo 3 formas de manipular a cualquier persona",
-        "ref": "",
-        "editorPone": false,
-        "steps": [
-          "Decís las 3 formas de manipular a cualquier persona"
-        ],
-        "items": []
-      },
-      {
-        "title": "Españolas vs. Colombianas",
-        "tipo": "Q&A — El Filmmaker te pregunta",
-        "ilus": "svgQA",
-        "gancho": "Alex...¿qué mujer es más guapa...la española o la colombiana?",
-        "ref": "",
-        "editorPone": false,
-        "steps": [
-          "Explicás quién es más guapa y justificás"
-        ],
-        "items": []
-      },
-      {
-        "title": "Mejores comidas de Colombia",
-        "tipo": "Q&A — El Filmmaker te pregunta",
-        "ilus": "svgQA",
-        "gancho": "Alex...¿cuáles son las 5 mejores comidas de Colombia?",
-        "ref": "",
-        "editorPone": false,
-        "steps": [
-          "Mencionás las 5 mejores comidas de Colombia de la peor a la mejor"
-        ],
-        "items": []
-      },
-      {
-        "title": "El Sancocho",
-        "tipo": "Q&A — El Filmmaker te pregunta",
-        "ilus": "svgQA",
-        "gancho": "Alex...¿qué es un SANCOCHO y cómo lo puntuarías del 1 al 10?",
-        "ref": "",
-        "editorPone": false,
-        "steps": [
-          "Explicás qué es el Sancocho",
-          "Le das un puntaje del 1 al 10 con justificación"
-        ],
-        "items": []
-      },
-      {
-        "title": "Mejores países para vivir",
-        "tipo": "Q&A — El Filmmaker te pregunta",
-        "ilus": "svgQA",
-        "gancho": "Alex...¿en cuántos países viviste y cuál es el mejor para vivir?",
-        "ref": "",
-        "editorPone": false,
-        "steps": [
-          "Mencionás todos los países donde viviste",
-          "Decís cuál es el mejor y justificás"
-        ],
-        "items": []
-      },
-      {
-        "title": "Emprender en Colombia",
-        "tipo": "Q&A — El Filmmaker te pregunta",
-        "ilus": "svgQA",
-        "gancho": "Alex...¿es verdad que Colombia es lindo para vivir pero muy malo para emprender?",
-        "ref": "",
-        "editorPone": false,
-        "steps": [
-          "Explicás y justificás por qué"
-        ],
-        "items": []
-      },
-      {
-        "title": "Pros y Contras de Medellín",
-        "tipo": "Q&A — El Filmmaker te pregunta",
-        "ilus": "svgQA",
-        "gancho": "Alex...PROS y CONTRAS de vivir en Medellín",
-        "ref": "",
-        "editorPone": false,
-        "steps": [
-          "Mencionás 3 contras",
-          "Mencionás 3 pros"
-        ],
-        "items": []
-      },
-      {
-        "title": "Puntuación ciudades de Colombia",
-        "tipo": "Q&A — El Filmmaker te pregunta",
-        "ilus": "svgRanking",
-        "gancho": "Alex...te digo una ciudad de Colombia y tú me das una puntuación del 1 al 10...",
-        "ref": "",
-        "editorPone": false,
-        "steps": [
-          "Breve descripción de cada ciudad",
-          "Le das un puntaje del 1 al 10"
-        ],
-        "items": [
-          "Barranquilla",
-          "Pereira",
-          "Cartagena",
-          "Bogotá",
-          "Medellín"
-        ]
-      },
-      {
-        "title": "ROLO vs. PAISA",
-        "tipo": "Q&A — El Filmmaker te pregunta",
-        "ilus": "svgQA",
-        "gancho": "Alex...¿cuál es la principal diferencia entre el ROLO y el PAISA?",
-        "ref": "",
-        "editorPone": false,
-        "steps": [
-          "Explicás la principal diferencia entre uno y otro"
-        ],
-        "items": []
-      },
-      {
-        "title": "Bogotá vs. Medellín",
-        "tipo": "Q&A — El Filmmaker te pregunta",
-        "ilus": "svgQA",
-        "gancho": "Alex...¿qué es mejor BOGOTÁ o MEDELLÍN?",
-        "ref": "",
-        "editorPone": false,
-        "steps": [
-          "Explicás hace cuántos años vivís en Colombia",
-          "Hablás de lo bueno de Bogotá",
-          "Hablás de lo bueno de Medellín y decís cuál es mejor"
-        ],
-        "items": []
-      },
-      {
-        "title": "Mejores ciudades de Colombia",
-        "tipo": "Q&A — El Filmmaker te pregunta",
-        "ilus": "svgQA",
-        "gancho": "Alex...¿cuáles son las mejores ciudades de Colombia para vivir?",
-        "ref": "",
-        "editorPone": false,
-        "steps": [
-          "Empezás con: 'yo que llevo 5 años visitando el país...'",
-          "Mencionás cada ciudad de menos a más con descripción breve"
-        ],
-        "items": []
-      },
-      {
-        "title": "Colombianas vs. Españolas",
-        "tipo": "Q&A — El Filmmaker te pregunta",
-        "ilus": "svgQA",
-        "gancho": "Alex...¿cuál es la principal diferencia entre la mujer Colombiana y la mujer Española?",
-        "ref": "",
-        "editorPone": false,
-        "steps": [
-          "Explicás la diferencia dando un ejemplo concreto"
-        ],
-        "items": []
-      }
+    fecha: "Lunes 6 de abril",
+    videos: [
+      {title:"Opinión polémica (v1)",tipo:"Alguien te graba — mirás al Filmmaker",ilus:"svgLookFilmmaker",gancho:"Lo mejor que le podría pasar a un hombre es que la mujer lo deje.",ref:"",editorPone:false,steps:["Decís el gancho exacto","Explicás con tus palabras por qué creés esto"],items:[]},
+      {title:"Opinión polémica (v2)",tipo:"Alguien te graba — mirás al Filmmaker",ilus:"svgLookFilmmaker",gancho:"Si quieres que una mujer te deje dile... Amor, perdí todo. Estoy en bancarrota.",ref:"",editorPone:false,steps:["Si Alex está de acuerdo con esto, explicás por qué"],items:[]},
+      {title:"¿Qué opinas de esto?",tipo:"Q&A — El Filmmaker te pregunta",ilus:"svgQA",gancho:"Alex...¿qué opinas de eso que dicen los hombres que las mujeres le dan paz mental?",ref:"",editorPone:false,steps:["Respondés la pregunta justificando lógicamente tu respuesta"],items:[]},
+      {title:"Paradoja de Pinocho",tipo:"Alguien te graba — mirás al Filmmaker",ilus:"svgLookFilmmaker",gancho:"¿Sabes cuál es la paradoja de Pinocho?",ref:"",editorPone:false,steps:["Explicás la paradoja de Pinocho"],items:[]},
+      {title:"Reputación de las Colombianas (v1)",tipo:"Q&A — El Filmmaker te pregunta",ilus:"svgQA",gancho:"Alex...¿tú crees que las Colombianas tienen la reputación por el suelo?",ref:"",editorPone:false,steps:["Explicás por qué las Colombianas tienen la reputación por el suelo"],items:[]},
+      {title:"Reputación de las Colombianas (v2)",tipo:"Q&A — El Filmmaker te pregunta",ilus:"svgQA",gancho:'Alex...¿tú crees que las Colombianas tienen mala "FAMA" o mala "REPUTACIÓN"?',ref:"",editorPone:false,steps:["Explicás por qué las Colombianas tienen mala REPUTACIÓN"],items:[]},
+      {title:"Mujer infiel",tipo:"Q&A — El Filmmaker te pregunta",ilus:"svgQA",gancho:"Alex...¿qué opinas de una mujer infiel?",ref:"",editorPone:false,steps:["Explicás qué significa que una mujer haya sido infiel"],items:[]},
+      {title:"Hombre vs. mujer infiel",tipo:"Q&A — El Filmmaker te pregunta",ilus:"svgQA",gancho:"Alex...¿quién es más infiel...el hombre o la mujer?",ref:"",editorPone:false,steps:["Decís quién es más infiel","Explicás por qué"],items:[]},
+      {title:"Mujer comete infidelidad",tipo:"Alguien te graba — mirás al Filmmaker",ilus:"svgLookFilmmaker",gancho:"La mujer para cometer una infidelidad tiene que haberlo meditado mucho...",ref:"",editorPone:false,steps:["Explicás la diferencia entre infidelidad femenina vs masculina"],items:[]},
+      {title:"3 formas de manipular",tipo:"Alguien te graba — mirás al Filmmaker",ilus:"svgLookFilmmaker",gancho:"Te recomiendo 3 formas de manipular a cualquier persona",ref:"",editorPone:false,steps:["Decís las 3 formas de manipular a cualquier persona"],items:[]},
+      {title:"Españolas vs. Colombianas",tipo:"Q&A — El Filmmaker te pregunta",ilus:"svgQA",gancho:"Alex...¿qué mujer es más guapa...la española o la colombiana?",ref:"",editorPone:false,steps:["Explicás quién es más guapa y justificás"],items:[]},
+      {title:"Mejores comidas de Colombia",tipo:"Q&A — El Filmmaker te pregunta",ilus:"svgQA",gancho:"Alex...¿cuáles son las 5 mejores comidas de Colombia?",ref:"",editorPone:false,steps:["Mencionás las 5 mejores comidas de Colombia de la peor a la mejor"],items:[]},
+      {title:"El Sancocho",tipo:"Q&A — El Filmmaker te pregunta",ilus:"svgQA",gancho:"Alex...¿qué es un SANCOCHO y cómo lo puntuarías del 1 al 10?",ref:"",editorPone:false,steps:["Explicás qué es el Sancocho","Le das un puntaje del 1 al 10 con justificación"],items:[]},
+      {title:"Mejores países para vivir",tipo:"Q&A — El Filmmaker te pregunta",ilus:"svgQA",gancho:"Alex...¿en cuántos países viviste y cuál es el mejor para vivir?",ref:"",editorPone:false,steps:["Mencionás todos los países donde viviste","Decís cuál es el mejor y justificás"],items:[]},
+      {title:"Emprender en Colombia",tipo:"Q&A — El Filmmaker te pregunta",ilus:"svgQA",gancho:"Alex...¿es verdad que Colombia es lindo para vivir pero muy malo para emprender?",ref:"",editorPone:false,steps:["Explicás y justificás por qué"],items:[]},
+      {title:"Pros y Contras de Medellín",tipo:"Q&A — El Filmmaker te pregunta",ilus:"svgQA",gancho:"Alex...PROS y CONTRAS de vivir en Medellín",ref:"",editorPone:false,steps:["Mencionás 3 contras","Mencionás 3 pros"],items:[]},
+      {title:"Puntuación ciudades de Colombia",tipo:"Q&A — El Filmmaker te pregunta",ilus:"svgRanking",gancho:"Alex...te digo una ciudad de Colombia y tú me das una puntuación del 1 al 10...",ref:"",editorPone:false,steps:["Breve descripción de cada ciudad","Le das un puntaje del 1 al 10"],items:["Barranquilla","Pereira","Cartagena","Bogotá","Medellín"]},
+      {title:"ROLO vs. PAISA",tipo:"Q&A — El Filmmaker te pregunta",ilus:"svgQA",gancho:"Alex...¿cuál es la principal diferencia entre el ROLO y el PAISA?",ref:"",editorPone:false,steps:["Explicás la principal diferencia entre uno y otro"],items:[]},
+      {title:"Bogotá vs. Medellín",tipo:"Q&A — El Filmmaker te pregunta",ilus:"svgQA",gancho:"Alex...¿qué es mejor BOGOTÁ o MEDELLÍN?",ref:"",editorPone:false,steps:["Explicás hace cuántos años vivís en Colombia","Hablás de lo bueno de Bogotá","Hablás de lo bueno de Medellín y decís cuál es mejor"],items:[]},
+      {title:"Mejores ciudades de Colombia",tipo:"Q&A — El Filmmaker te pregunta",ilus:"svgQA",gancho:"Alex...¿cuáles son las mejores ciudades de Colombia para vivir?",ref:"",editorPone:false,steps:["Empezás con: 'yo que llevo 5 años visitando el país...'","Mencionás cada ciudad de menos a más con descripción breve"],items:[]},
+      {title:"Colombianas vs. Españolas",tipo:"Q&A — El Filmmaker te pregunta",ilus:"svgQA",gancho:"Alex...¿cuál es la principal diferencia entre la mujer Colombiana y la mujer Española?",ref:"",editorPone:false,steps:["Explicás la diferencia dando un ejemplo concreto"],items:[]}
     ]
-  },
+  }
+
+,
   {
-    "fecha": "Miércoles 8 de abril",
-    "videos": [
-      {
-        "title": "Bogotá vs. Medellín",
-        "ref": "",
-        "tipo": "Q&A — El Filmmaker te pregunta",
-        "ilus": "svgLookFilmmaker",
-        "gancho": "¿Qué es mejor, Bogotá o Medellín?",
-        "editorPone": false,
-        "steps": [
-          "Comenta sobre las diferencias entre las dos ciudades"
-        ],
-        "items": []
-      },
-      {
-        "title": "MIEDO = A, B o C",
-        "ref": "",
-        "tipo": "Mirás directo a la cámara",
-        "ilus": "svgTemuestra",
-        "gancho": "¿Qué te da más miedo?",
-        "editorPone": false,
-        "steps": [
-          "Las alturas",
-          "Las cucarachas",
-          "¿O pasar el resto de tu vida en el mismo empleo?"
-        ],
-        "items": []
-      },
-      {
-        "title": "¿Qué preferís?",
-        "ref": "",
-        "tipo": "Entrevista callejera",
-        "ilus": "svgEntrevista",
-        "gancho": "¿Qué preferís... Bogotá o Medellín?",
-        "editorPone": false,
-        "steps": [
-          "Preguntás... y escuchás la respuesta"
-        ],
-        "items": []
-      },
-      {
-        "title": "Explicar el ÉXITO",
-        "ref": "",
-        "tipo": "Mirás directo a la cámara",
-        "ilus": "svgPizarra",
-        "gancho": "¿Sabías que el éxito es proporcional a la cantidad de veces que fracasás?",
-        "editorPone": false,
-        "steps": [
-          "Explicás mientras lo mostrás en la pizarra"
-        ],
-        "items": []
-      }
-    ]
-  },
-  {
-    "fecha": "Jueves 9 de abril",
-    "videos": [
-      {
-        "title": "5 mejores ciudades de Colombia",
-        "ref": "https://drive.google.com/file/d/1dO8ljBkk1mtlXxTZuVnO9htLPz6VfSQA/view?usp=sharing",
-        "tipo": "Alguien te graba — mirás al Filmmaker",
-        "ilus": "svgLookFilmmaker",
-        "gancho": "Las mejores 5 ciudades de Colombia son...",
-        "editorPone": false,
-        "steps": [
-          "Di que has estado visitando Colombia por 5 años",
-          "Y menciona CADA ciudad del TOP 5 de menos a más"
-        ],
-        "items": []
-      }
+    fecha: "Miércoles 8 de abril",
+    videos: [
+      {title:"Bogotá vs. Medellín",ref:"",tipo:"Q&A — El Filmmaker te pregunta",ilus:"svgLookFilmmaker",gancho:"¿Qué es mejor, Bogotá o Medellín?",editorPone:false,steps:["Comenta sobre las diferencias entre las dos ciudades"],items:[]},
+      {title:"MIEDO = A, B o C",ref:"",tipo:"Mirás directo a la cámara",ilus:"svgTemuestra",gancho:"¿Qué te da más miedo?",editorPone:false,steps:["Las alturas","Las cucarachas","¿O pasar el resto de tu vida en el mismo empleo?"],items:[]},
+      {title:"¿Qué preferís?",ref:"",tipo:"Entrevista callejera",ilus:"svgEntrevista",gancho:"¿Qué preferís... Bogotá o Medellín?",editorPone:false,steps:["Preguntás... y escuchás la respuesta"],items:[]},
+      {title:"Explicar el ÉXITO",ref:"",tipo:"Mirás directo a la cámara",ilus:"svgPizarra",gancho:"¿Sabías que el éxito es proporcional a la cantidad de veces que fracasás?",editorPone:false,steps:["Explicás mientras lo mostrás en la pizarra"],items:[]}
     ]
   }
 ];
@@ -721,7 +415,7 @@ function dayDoneCount(d){
 
 // ─── SCREENS ─────────────────────────────────────────────────
 function show(id){
-  ['splash','vlist','viewer','finish'].forEach(function(s){
+  ['splash','vlist','viewer','finish','admin'].forEach(function(s){
     document.getElementById(s).classList.remove('active');
   });
   document.getElementById(id).classList.add('active');
@@ -1159,6 +853,5 @@ function saveData(){
 })();
 
 </script>
-
-
-</body></html>
+</body>
+</html>
