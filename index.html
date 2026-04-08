@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
+<html lang="es"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>Plan de Grabación</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&amp;family=DM+Sans:wght@400;500&amp;display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 :root{--bg:#0a0a0a;--card:#181818;--card2:#1e1e1e;--border:rgba(255,255,255,0.09);--text:#f0f0f0;--muted:#666;--accent:#c8f135;--red:#ff4444;}
@@ -167,22 +165,22 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min
 </head>
 <body>
 
-<div id="splash" class="screen active">
+<div id="splash" class="screen">
   <div class="logo">Plan de<br><span>Grabación</span></div>
   <div class="splash-sub">Tocá un día para ver los videos</div>
-  <div class="days-list" id="daysList"></div>
+  <div class="days-list" id="daysList"><div class="day-card" data-day="0"><div class="day-left"><div class="day-date">Lunes 6 de abril</div><div class="day-count">21 videos · 0 grabados</div></div><div class="day-badge">0/21</div></div><div class="day-card today" data-day="1"><div class="day-left"><div class="today-tag">● Hoy</div><div class="day-date">Miércoles 8 de abril</div><div class="day-count">4 videos · 0 grabados</div></div><div class="day-badge">0/4</div></div><div class="day-card" data-day="2"><div class="day-left"><div class="day-date">Jueves 9 de abril</div><div class="day-count">1 videos · 0 grabados</div></div><div class="day-badge">0/1</div></div><div class="day-card" data-day="3"><div class="day-left"><div class="day-date">Viernes 10 de abril</div><div class="day-count">0 videos · 0 grabados</div></div><div class="day-badge">0/0</div></div></div>
 </div>
 
 <div id="vlist" class="screen">
   <div class="topbar">
     <button class="back" id="vlistBack">← Días</button>
-    <div class="topbar-title" id="vlistTitle"></div>
+    <div class="topbar-title" id="vlistTitle">Jueves 9 de abril</div>
     <div class="prog-wrap">
-      <div class="prog-lbl" id="vlistProg"></div>
+      <div class="prog-lbl" id="vlistProg">0/1</div>
       <div class="prog-bg"><div class="prog-fill" id="vlistFill" style="width:0%"></div></div>
     </div>
   </div>
-  <div class="vlist" id="vlistContent"></div>
+  <div class="vlist" id="vlistContent"><div class="vlist-header"><div class="vlist-date">Jueves 9 de abril</div><div class="vlist-sub">1 videos para grabar</div></div><div class="vitem" data-vi="0"><div class="vitem-num">1</div><div class="vitem-info"><div class="vitem-title">5 mejores ciudades de Colombia</div><div class="vitem-tag">Alguien te graba — mirás al Filmmaker</div></div><div class="vitem-check">›</div></div></div>
 </div>
 
 <div id="viewer" class="screen">
@@ -206,14 +204,14 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min
 
 
 <!-- ADMIN PIN -->
-<div id="adminPin">
+<div id="adminPin" class="">
   <div class="pin-title">Modo Admin</div>
   <div class="pin-sub">Ingresá el PIN</div>
   <div class="pin-dots" id="pinDots">
-    <div class="pin-dot"></div>
-    <div class="pin-dot"></div>
-    <div class="pin-dot"></div>
-    <div class="pin-dot"></div>
+    <div class="pin-dot filled"></div>
+    <div class="pin-dot filled"></div>
+    <div class="pin-dot filled"></div>
+    <div class="pin-dot filled"></div>
   </div>
   <div class="pin-error" id="pinError"></div>
   <div class="pin-pad">
@@ -234,26 +232,26 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min
 </div>
 
 <!-- ADMIN PANEL -->
-<div id="admin" class="screen">
+<div id="admin" class="screen active">
   <div class="admin-topbar">
     <div class="admin-title">⚙️ Admin</div>
     <button class="admin-export" id="adminExport">⬇ Exportar</button>
     <button class="admin-exit" id="adminExit">← Salir</button>
   </div>
   <div class="admin-body">
-    <div id="adminDaysList"></div>
+    <div id="adminDaysList"><div class="admin-day" data-di="0"><div class="admin-day-header" data-toggle="0"><div class="admin-day-date">Lunes 6 de abril</div><div class="admin-day-count">21 videos</div><button class="admin-day-del" data-daydel="0">✕</button><span class="admin-day-toggle" id="toggle-0">▼</span></div><div class="admin-videos" id="avids-0"><div class="admin-video"><div class="admin-video-num">1</div><div class="admin-video-info"><div class="admin-video-title">Opinión polémica (v1)</div><div class="admin-video-sub">Alguien te graba — mirás al Filmmaker</div></div><button class="admin-video-edit" data-di="0" data-vi="0">Editar</button><button class="admin-video-del" data-di="0" data-vi="0">✕</button></div><div class="admin-video"><div class="admin-video-num">2</div><div class="admin-video-info"><div class="admin-video-title">Opinión polémica (v2)</div><div class="admin-video-sub">Alguien te graba — mirás al Filmmaker</div></div><button class="admin-video-edit" data-di="0" data-vi="1">Editar</button><button class="admin-video-del" data-di="0" data-vi="1">✕</button></div><div class="admin-video"><div class="admin-video-num">3</div><div class="admin-video-info"><div class="admin-video-title">¿Qué opinas de esto?</div><div class="admin-video-sub">Q&amp;A — El Filmmaker te pregunta</div></div><button class="admin-video-edit" data-di="0" data-vi="2">Editar</button><button class="admin-video-del" data-di="0" data-vi="2">✕</button></div><div class="admin-video"><div class="admin-video-num">4</div><div class="admin-video-info"><div class="admin-video-title">Paradoja de Pinocho</div><div class="admin-video-sub">Alguien te graba — mirás al Filmmaker</div></div><button class="admin-video-edit" data-di="0" data-vi="3">Editar</button><button class="admin-video-del" data-di="0" data-vi="3">✕</button></div><div class="admin-video"><div class="admin-video-num">5</div><div class="admin-video-info"><div class="admin-video-title">Reputación de las Colombianas (v1)</div><div class="admin-video-sub">Q&amp;A — El Filmmaker te pregunta</div></div><button class="admin-video-edit" data-di="0" data-vi="4">Editar</button><button class="admin-video-del" data-di="0" data-vi="4">✕</button></div><div class="admin-video"><div class="admin-video-num">6</div><div class="admin-video-info"><div class="admin-video-title">Reputación de las Colombianas (v2)</div><div class="admin-video-sub">Q&amp;A — El Filmmaker te pregunta</div></div><button class="admin-video-edit" data-di="0" data-vi="5">Editar</button><button class="admin-video-del" data-di="0" data-vi="5">✕</button></div><div class="admin-video"><div class="admin-video-num">7</div><div class="admin-video-info"><div class="admin-video-title">Mujer infiel</div><div class="admin-video-sub">Q&amp;A — El Filmmaker te pregunta</div></div><button class="admin-video-edit" data-di="0" data-vi="6">Editar</button><button class="admin-video-del" data-di="0" data-vi="6">✕</button></div><div class="admin-video"><div class="admin-video-num">8</div><div class="admin-video-info"><div class="admin-video-title">Hombre vs. mujer infiel</div><div class="admin-video-sub">Q&amp;A — El Filmmaker te pregunta</div></div><button class="admin-video-edit" data-di="0" data-vi="7">Editar</button><button class="admin-video-del" data-di="0" data-vi="7">✕</button></div><div class="admin-video"><div class="admin-video-num">9</div><div class="admin-video-info"><div class="admin-video-title">Mujer comete infidelidad</div><div class="admin-video-sub">Alguien te graba — mirás al Filmmaker</div></div><button class="admin-video-edit" data-di="0" data-vi="8">Editar</button><button class="admin-video-del" data-di="0" data-vi="8">✕</button></div><div class="admin-video"><div class="admin-video-num">10</div><div class="admin-video-info"><div class="admin-video-title">3 formas de manipular</div><div class="admin-video-sub">Alguien te graba — mirás al Filmmaker</div></div><button class="admin-video-edit" data-di="0" data-vi="9">Editar</button><button class="admin-video-del" data-di="0" data-vi="9">✕</button></div><div class="admin-video"><div class="admin-video-num">11</div><div class="admin-video-info"><div class="admin-video-title">Españolas vs. Colombianas</div><div class="admin-video-sub">Q&amp;A — El Filmmaker te pregunta</div></div><button class="admin-video-edit" data-di="0" data-vi="10">Editar</button><button class="admin-video-del" data-di="0" data-vi="10">✕</button></div><div class="admin-video"><div class="admin-video-num">12</div><div class="admin-video-info"><div class="admin-video-title">Mejores comidas de Colombia</div><div class="admin-video-sub">Q&amp;A — El Filmmaker te pregunta</div></div><button class="admin-video-edit" data-di="0" data-vi="11">Editar</button><button class="admin-video-del" data-di="0" data-vi="11">✕</button></div><div class="admin-video"><div class="admin-video-num">13</div><div class="admin-video-info"><div class="admin-video-title">El Sancocho</div><div class="admin-video-sub">Q&amp;A — El Filmmaker te pregunta</div></div><button class="admin-video-edit" data-di="0" data-vi="12">Editar</button><button class="admin-video-del" data-di="0" data-vi="12">✕</button></div><div class="admin-video"><div class="admin-video-num">14</div><div class="admin-video-info"><div class="admin-video-title">Mejores países para vivir</div><div class="admin-video-sub">Q&amp;A — El Filmmaker te pregunta</div></div><button class="admin-video-edit" data-di="0" data-vi="13">Editar</button><button class="admin-video-del" data-di="0" data-vi="13">✕</button></div><div class="admin-video"><div class="admin-video-num">15</div><div class="admin-video-info"><div class="admin-video-title">Emprender en Colombia</div><div class="admin-video-sub">Q&amp;A — El Filmmaker te pregunta</div></div><button class="admin-video-edit" data-di="0" data-vi="14">Editar</button><button class="admin-video-del" data-di="0" data-vi="14">✕</button></div><div class="admin-video"><div class="admin-video-num">16</div><div class="admin-video-info"><div class="admin-video-title">Pros y Contras de Medellín</div><div class="admin-video-sub">Q&amp;A — El Filmmaker te pregunta</div></div><button class="admin-video-edit" data-di="0" data-vi="15">Editar</button><button class="admin-video-del" data-di="0" data-vi="15">✕</button></div><div class="admin-video"><div class="admin-video-num">17</div><div class="admin-video-info"><div class="admin-video-title">Puntuación ciudades de Colombia</div><div class="admin-video-sub">Q&amp;A — El Filmmaker te pregunta</div></div><button class="admin-video-edit" data-di="0" data-vi="16">Editar</button><button class="admin-video-del" data-di="0" data-vi="16">✕</button></div><div class="admin-video"><div class="admin-video-num">18</div><div class="admin-video-info"><div class="admin-video-title">ROLO vs. PAISA</div><div class="admin-video-sub">Q&amp;A — El Filmmaker te pregunta</div></div><button class="admin-video-edit" data-di="0" data-vi="17">Editar</button><button class="admin-video-del" data-di="0" data-vi="17">✕</button></div><div class="admin-video"><div class="admin-video-num">19</div><div class="admin-video-info"><div class="admin-video-title">Bogotá vs. Medellín</div><div class="admin-video-sub">Q&amp;A — El Filmmaker te pregunta</div></div><button class="admin-video-edit" data-di="0" data-vi="18">Editar</button><button class="admin-video-del" data-di="0" data-vi="18">✕</button></div><div class="admin-video"><div class="admin-video-num">20</div><div class="admin-video-info"><div class="admin-video-title">Mejores ciudades de Colombia</div><div class="admin-video-sub">Q&amp;A — El Filmmaker te pregunta</div></div><button class="admin-video-edit" data-di="0" data-vi="19">Editar</button><button class="admin-video-del" data-di="0" data-vi="19">✕</button></div><div class="admin-video"><div class="admin-video-num">21</div><div class="admin-video-info"><div class="admin-video-title">Colombianas vs. Españolas</div><div class="admin-video-sub">Q&amp;A — El Filmmaker te pregunta</div></div><button class="admin-video-edit" data-di="0" data-vi="20">Editar</button><button class="admin-video-del" data-di="0" data-vi="20">✕</button></div><div style="padding:.75rem 1.1rem;border-top:1px solid var(--border);"><button class="admin-btn" data-addvid="0" style="width:100%;padding:10px;font-size:13px;">+ Agregar video a este día</button></div></div></div><div class="admin-day" data-di="1"><div class="admin-day-header" data-toggle="1"><div class="admin-day-date">Miércoles 8 de abril</div><div class="admin-day-count">4 videos</div><button class="admin-day-del" data-daydel="1">✕</button><span class="admin-day-toggle" id="toggle-1">▼</span></div><div class="admin-videos" id="avids-1"><div class="admin-video"><div class="admin-video-num">1</div><div class="admin-video-info"><div class="admin-video-title">Bogotá vs. Medellín</div><div class="admin-video-sub">Q&amp;A — El Filmmaker te pregunta</div></div><button class="admin-video-edit" data-di="1" data-vi="0">Editar</button><button class="admin-video-del" data-di="1" data-vi="0">✕</button></div><div class="admin-video"><div class="admin-video-num">2</div><div class="admin-video-info"><div class="admin-video-title">MIEDO = A, B o C</div><div class="admin-video-sub">Mirás directo a la cámara</div></div><button class="admin-video-edit" data-di="1" data-vi="1">Editar</button><button class="admin-video-del" data-di="1" data-vi="1">✕</button></div><div class="admin-video"><div class="admin-video-num">3</div><div class="admin-video-info"><div class="admin-video-title">¿Qué preferís?</div><div class="admin-video-sub">Entrevista callejera</div></div><button class="admin-video-edit" data-di="1" data-vi="2">Editar</button><button class="admin-video-del" data-di="1" data-vi="2">✕</button></div><div class="admin-video"><div class="admin-video-num">4</div><div class="admin-video-info"><div class="admin-video-title">Explicar el ÉXITO</div><div class="admin-video-sub">Mirás directo a la cámara</div></div><button class="admin-video-edit" data-di="1" data-vi="3">Editar</button><button class="admin-video-del" data-di="1" data-vi="3">✕</button></div><div style="padding:.75rem 1.1rem;border-top:1px solid var(--border);"><button class="admin-btn" data-addvid="1" style="width:100%;padding:10px;font-size:13px;">+ Agregar video a este día</button></div></div></div><div class="admin-day" data-di="2"><div class="admin-day-header" data-toggle="2"><div class="admin-day-date">Jueves 9 de abril</div><div class="admin-day-count">1 videos</div><button class="admin-day-del" data-daydel="2">✕</button><span class="admin-day-toggle" id="toggle-2">▼</span></div><div class="admin-videos" id="avids-2"><div class="admin-video"><div class="admin-video-num">1</div><div class="admin-video-info"><div class="admin-video-title">5 mejores ciudades de Colombia</div><div class="admin-video-sub">Alguien te graba — mirás al Filmmaker</div></div><button class="admin-video-edit" data-di="2" data-vi="0">Editar</button><button class="admin-video-del" data-di="2" data-vi="0">✕</button></div><div style="padding:.75rem 1.1rem;border-top:1px solid var(--border);"><button class="admin-btn" data-addvid="2" style="width:100%;padding:10px;font-size:13px;">+ Agregar video a este día</button></div></div></div><div class="admin-day" data-di="3"><div class="admin-day-header" data-toggle="3"><div class="admin-day-date">Viernes 10 de abril</div><div class="admin-day-count">0 videos</div><button class="admin-day-del" data-daydel="3">✕</button><span class="admin-day-toggle" id="toggle-3">▼</span></div><div class="admin-videos" id="avids-3"><div style="padding:.75rem 1.1rem;border-top:1px solid var(--border);"><button class="admin-btn" data-addvid="3" style="width:100%;padding:10px;font-size:13px;">+ Agregar video a este día</button></div></div></div></div>
     <div class="admin-add-day">
-      <input class="admin-input" id="adminNewDayInput" placeholder="Nuevo día (ej: Jueves 10 de abril)" type="text"/>
+      <input class="admin-input" id="adminNewDayInput" placeholder="Nuevo día (ej: Jueves 10 de abril)" type="text">
       <button class="admin-btn" id="adminAddDayBtn">+ Día</button>
     </div>
   </div>
 </div>
 
 <!-- ADMIN VIDEO FORM -->
-<div id="adminForm">
+<div id="adminForm" class="">
   <div class="af-topbar">
     <button class="af-back" id="afBack">← Volver</button>
-    <div class="af-title" id="afTitle">Nuevo video</div>
+    <div class="af-title" id="afTitle">Nuevo video — Jueves 9 de abril</div>
     <button class="af-save" id="afSave">Guardar ✓</button>
   </div>
   <div class="af-body">
@@ -263,14 +261,14 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min
     </div>
     <div class="af-section">
       <div class="af-label">Video de referencia (link Drive)</div>
-      <input class="af-input" id="afRef" placeholder="https://drive.google.com/..." type="url" style="min-height:44px;resize:none;"/>
+      <input class="af-input" id="afRef" placeholder="https://drive.google.com/..." type="url" style="min-height:44px;resize:none;">
     </div>
     <div class="af-section">
       <div class="af-label">Tipo de grabación *</div>
       <div class="af-opts" id="afTipo">
         <button class="af-opt" data-val="Alguien te graba — mirás al Filmmaker">🎥 Alguien te graba</button>
         <button class="af-opt" data-val="Mirás directo a la cámara">👁 Directo a cámara</button>
-        <button class="af-opt" data-val="Q&A — El Filmmaker te pregunta">🎙 Q&A</button>
+        <button class="af-opt" data-val="Q&amp;A — El Filmmaker te pregunta">🎙 Q&amp;A</button>
         <button class="af-opt" data-val="Señalás con el dedo hacia arriba">☝️ Señalar arriba</button>
         <button class="af-opt" data-val="POV — cámara es el punto de vista">🎥 POV</button>
         <button class="af-opt" data-val="Reaction">😮 Reaction</button>
@@ -313,7 +311,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min
     <div class="af-section">
       <div class="af-label">Ítems (si hay lista)</div>
       <div class="af-tag-row">
-        <input class="af-tag-input" id="afItemInput" placeholder="Escribí un ítem y tocá +" type="text"/>
+        <input class="af-tag-input" id="afItemInput" placeholder="Escribí un ítem y tocá +" type="text">
         <button class="af-add-tag" id="afAddItem">+</button>
       </div>
       <div class="af-tags" id="afItemsList"></div>
@@ -358,41 +356,353 @@ function getSvg(k){
 // ─── DATA — AGREGAR DÍAS Y VIDEOS ACÁ ────────────────────────
 var DIAS = [
   {
-    fecha: "Lunes 6 de abril",
-    videos: [
-      {title:"Opinión polémica (v1)",tipo:"Alguien te graba — mirás al Filmmaker",ilus:"svgLookFilmmaker",gancho:"Lo mejor que le podría pasar a un hombre es que la mujer lo deje.",ref:"",editorPone:false,steps:["Decís el gancho exacto","Explicás con tus palabras por qué creés esto"],items:[]},
-      {title:"Opinión polémica (v2)",tipo:"Alguien te graba — mirás al Filmmaker",ilus:"svgLookFilmmaker",gancho:"Si quieres que una mujer te deje dile... Amor, perdí todo. Estoy en bancarrota.",ref:"",editorPone:false,steps:["Si Alex está de acuerdo con esto, explicás por qué"],items:[]},
-      {title:"¿Qué opinas de esto?",tipo:"Q&A — El Filmmaker te pregunta",ilus:"svgQA",gancho:"Alex...¿qué opinas de eso que dicen los hombres que las mujeres le dan paz mental?",ref:"",editorPone:false,steps:["Respondés la pregunta justificando lógicamente tu respuesta"],items:[]},
-      {title:"Paradoja de Pinocho",tipo:"Alguien te graba — mirás al Filmmaker",ilus:"svgLookFilmmaker",gancho:"¿Sabes cuál es la paradoja de Pinocho?",ref:"",editorPone:false,steps:["Explicás la paradoja de Pinocho"],items:[]},
-      {title:"Reputación de las Colombianas (v1)",tipo:"Q&A — El Filmmaker te pregunta",ilus:"svgQA",gancho:"Alex...¿tú crees que las Colombianas tienen la reputación por el suelo?",ref:"",editorPone:false,steps:["Explicás por qué las Colombianas tienen la reputación por el suelo"],items:[]},
-      {title:"Reputación de las Colombianas (v2)",tipo:"Q&A — El Filmmaker te pregunta",ilus:"svgQA",gancho:'Alex...¿tú crees que las Colombianas tienen mala "FAMA" o mala "REPUTACIÓN"?',ref:"",editorPone:false,steps:["Explicás por qué las Colombianas tienen mala REPUTACIÓN"],items:[]},
-      {title:"Mujer infiel",tipo:"Q&A — El Filmmaker te pregunta",ilus:"svgQA",gancho:"Alex...¿qué opinas de una mujer infiel?",ref:"",editorPone:false,steps:["Explicás qué significa que una mujer haya sido infiel"],items:[]},
-      {title:"Hombre vs. mujer infiel",tipo:"Q&A — El Filmmaker te pregunta",ilus:"svgQA",gancho:"Alex...¿quién es más infiel...el hombre o la mujer?",ref:"",editorPone:false,steps:["Decís quién es más infiel","Explicás por qué"],items:[]},
-      {title:"Mujer comete infidelidad",tipo:"Alguien te graba — mirás al Filmmaker",ilus:"svgLookFilmmaker",gancho:"La mujer para cometer una infidelidad tiene que haberlo meditado mucho...",ref:"",editorPone:false,steps:["Explicás la diferencia entre infidelidad femenina vs masculina"],items:[]},
-      {title:"3 formas de manipular",tipo:"Alguien te graba — mirás al Filmmaker",ilus:"svgLookFilmmaker",gancho:"Te recomiendo 3 formas de manipular a cualquier persona",ref:"",editorPone:false,steps:["Decís las 3 formas de manipular a cualquier persona"],items:[]},
-      {title:"Españolas vs. Colombianas",tipo:"Q&A — El Filmmaker te pregunta",ilus:"svgQA",gancho:"Alex...¿qué mujer es más guapa...la española o la colombiana?",ref:"",editorPone:false,steps:["Explicás quién es más guapa y justificás"],items:[]},
-      {title:"Mejores comidas de Colombia",tipo:"Q&A — El Filmmaker te pregunta",ilus:"svgQA",gancho:"Alex...¿cuáles son las 5 mejores comidas de Colombia?",ref:"",editorPone:false,steps:["Mencionás las 5 mejores comidas de Colombia de la peor a la mejor"],items:[]},
-      {title:"El Sancocho",tipo:"Q&A — El Filmmaker te pregunta",ilus:"svgQA",gancho:"Alex...¿qué es un SANCOCHO y cómo lo puntuarías del 1 al 10?",ref:"",editorPone:false,steps:["Explicás qué es el Sancocho","Le das un puntaje del 1 al 10 con justificación"],items:[]},
-      {title:"Mejores países para vivir",tipo:"Q&A — El Filmmaker te pregunta",ilus:"svgQA",gancho:"Alex...¿en cuántos países viviste y cuál es el mejor para vivir?",ref:"",editorPone:false,steps:["Mencionás todos los países donde viviste","Decís cuál es el mejor y justificás"],items:[]},
-      {title:"Emprender en Colombia",tipo:"Q&A — El Filmmaker te pregunta",ilus:"svgQA",gancho:"Alex...¿es verdad que Colombia es lindo para vivir pero muy malo para emprender?",ref:"",editorPone:false,steps:["Explicás y justificás por qué"],items:[]},
-      {title:"Pros y Contras de Medellín",tipo:"Q&A — El Filmmaker te pregunta",ilus:"svgQA",gancho:"Alex...PROS y CONTRAS de vivir en Medellín",ref:"",editorPone:false,steps:["Mencionás 3 contras","Mencionás 3 pros"],items:[]},
-      {title:"Puntuación ciudades de Colombia",tipo:"Q&A — El Filmmaker te pregunta",ilus:"svgRanking",gancho:"Alex...te digo una ciudad de Colombia y tú me das una puntuación del 1 al 10...",ref:"",editorPone:false,steps:["Breve descripción de cada ciudad","Le das un puntaje del 1 al 10"],items:["Barranquilla","Pereira","Cartagena","Bogotá","Medellín"]},
-      {title:"ROLO vs. PAISA",tipo:"Q&A — El Filmmaker te pregunta",ilus:"svgQA",gancho:"Alex...¿cuál es la principal diferencia entre el ROLO y el PAISA?",ref:"",editorPone:false,steps:["Explicás la principal diferencia entre uno y otro"],items:[]},
-      {title:"Bogotá vs. Medellín",tipo:"Q&A — El Filmmaker te pregunta",ilus:"svgQA",gancho:"Alex...¿qué es mejor BOGOTÁ o MEDELLÍN?",ref:"",editorPone:false,steps:["Explicás hace cuántos años vivís en Colombia","Hablás de lo bueno de Bogotá","Hablás de lo bueno de Medellín y decís cuál es mejor"],items:[]},
-      {title:"Mejores ciudades de Colombia",tipo:"Q&A — El Filmmaker te pregunta",ilus:"svgQA",gancho:"Alex...¿cuáles son las mejores ciudades de Colombia para vivir?",ref:"",editorPone:false,steps:["Empezás con: 'yo que llevo 5 años visitando el país...'","Mencionás cada ciudad de menos a más con descripción breve"],items:[]},
-      {title:"Colombianas vs. Españolas",tipo:"Q&A — El Filmmaker te pregunta",ilus:"svgQA",gancho:"Alex...¿cuál es la principal diferencia entre la mujer Colombiana y la mujer Española?",ref:"",editorPone:false,steps:["Explicás la diferencia dando un ejemplo concreto"],items:[]}
+    "fecha": "Lunes 6 de abril",
+    "videos": [
+      {
+        "title": "Opinión polémica (v1)",
+        "tipo": "Alguien te graba — mirás al Filmmaker",
+        "ilus": "svgLookFilmmaker",
+        "gancho": "Lo mejor que le podría pasar a un hombre es que la mujer lo deje.",
+        "ref": "",
+        "editorPone": false,
+        "steps": [
+          "Decís el gancho exacto",
+          "Explicás con tus palabras por qué creés esto"
+        ],
+        "items": []
+      },
+      {
+        "title": "Opinión polémica (v2)",
+        "tipo": "Alguien te graba — mirás al Filmmaker",
+        "ilus": "svgLookFilmmaker",
+        "gancho": "Si quieres que una mujer te deje dile... Amor, perdí todo. Estoy en bancarrota.",
+        "ref": "",
+        "editorPone": false,
+        "steps": [
+          "Si Alex está de acuerdo con esto, explicás por qué"
+        ],
+        "items": []
+      },
+      {
+        "title": "¿Qué opinas de esto?",
+        "tipo": "Q&A — El Filmmaker te pregunta",
+        "ilus": "svgQA",
+        "gancho": "Alex...¿qué opinas de eso que dicen los hombres que las mujeres le dan paz mental?",
+        "ref": "",
+        "editorPone": false,
+        "steps": [
+          "Respondés la pregunta justificando lógicamente tu respuesta"
+        ],
+        "items": []
+      },
+      {
+        "title": "Paradoja de Pinocho",
+        "tipo": "Alguien te graba — mirás al Filmmaker",
+        "ilus": "svgLookFilmmaker",
+        "gancho": "¿Sabes cuál es la paradoja de Pinocho?",
+        "ref": "",
+        "editorPone": false,
+        "steps": [
+          "Explicás la paradoja de Pinocho"
+        ],
+        "items": []
+      },
+      {
+        "title": "Reputación de las Colombianas (v1)",
+        "tipo": "Q&A — El Filmmaker te pregunta",
+        "ilus": "svgQA",
+        "gancho": "Alex...¿tú crees que las Colombianas tienen la reputación por el suelo?",
+        "ref": "",
+        "editorPone": false,
+        "steps": [
+          "Explicás por qué las Colombianas tienen la reputación por el suelo"
+        ],
+        "items": []
+      },
+      {
+        "title": "Reputación de las Colombianas (v2)",
+        "tipo": "Q&A — El Filmmaker te pregunta",
+        "ilus": "svgQA",
+        "gancho": "Alex...¿tú crees que las Colombianas tienen mala \"FAMA\" o mala \"REPUTACIÓN\"?",
+        "ref": "",
+        "editorPone": false,
+        "steps": [
+          "Explicás por qué las Colombianas tienen mala REPUTACIÓN"
+        ],
+        "items": []
+      },
+      {
+        "title": "Mujer infiel",
+        "tipo": "Q&A — El Filmmaker te pregunta",
+        "ilus": "svgQA",
+        "gancho": "Alex...¿qué opinas de una mujer infiel?",
+        "ref": "",
+        "editorPone": false,
+        "steps": [
+          "Explicás qué significa que una mujer haya sido infiel"
+        ],
+        "items": []
+      },
+      {
+        "title": "Hombre vs. mujer infiel",
+        "tipo": "Q&A — El Filmmaker te pregunta",
+        "ilus": "svgQA",
+        "gancho": "Alex...¿quién es más infiel...el hombre o la mujer?",
+        "ref": "",
+        "editorPone": false,
+        "steps": [
+          "Decís quién es más infiel",
+          "Explicás por qué"
+        ],
+        "items": []
+      },
+      {
+        "title": "Mujer comete infidelidad",
+        "tipo": "Alguien te graba — mirás al Filmmaker",
+        "ilus": "svgLookFilmmaker",
+        "gancho": "La mujer para cometer una infidelidad tiene que haberlo meditado mucho...",
+        "ref": "",
+        "editorPone": false,
+        "steps": [
+          "Explicás la diferencia entre infidelidad femenina vs masculina"
+        ],
+        "items": []
+      },
+      {
+        "title": "3 formas de manipular",
+        "tipo": "Alguien te graba — mirás al Filmmaker",
+        "ilus": "svgLookFilmmaker",
+        "gancho": "Te recomiendo 3 formas de manipular a cualquier persona",
+        "ref": "",
+        "editorPone": false,
+        "steps": [
+          "Decís las 3 formas de manipular a cualquier persona"
+        ],
+        "items": []
+      },
+      {
+        "title": "Españolas vs. Colombianas",
+        "tipo": "Q&A — El Filmmaker te pregunta",
+        "ilus": "svgQA",
+        "gancho": "Alex...¿qué mujer es más guapa...la española o la colombiana?",
+        "ref": "",
+        "editorPone": false,
+        "steps": [
+          "Explicás quién es más guapa y justificás"
+        ],
+        "items": []
+      },
+      {
+        "title": "Mejores comidas de Colombia",
+        "tipo": "Q&A — El Filmmaker te pregunta",
+        "ilus": "svgQA",
+        "gancho": "Alex...¿cuáles son las 5 mejores comidas de Colombia?",
+        "ref": "",
+        "editorPone": false,
+        "steps": [
+          "Mencionás las 5 mejores comidas de Colombia de la peor a la mejor"
+        ],
+        "items": []
+      },
+      {
+        "title": "El Sancocho",
+        "tipo": "Q&A — El Filmmaker te pregunta",
+        "ilus": "svgQA",
+        "gancho": "Alex...¿qué es un SANCOCHO y cómo lo puntuarías del 1 al 10?",
+        "ref": "",
+        "editorPone": false,
+        "steps": [
+          "Explicás qué es el Sancocho",
+          "Le das un puntaje del 1 al 10 con justificación"
+        ],
+        "items": []
+      },
+      {
+        "title": "Mejores países para vivir",
+        "tipo": "Q&A — El Filmmaker te pregunta",
+        "ilus": "svgQA",
+        "gancho": "Alex...¿en cuántos países viviste y cuál es el mejor para vivir?",
+        "ref": "",
+        "editorPone": false,
+        "steps": [
+          "Mencionás todos los países donde viviste",
+          "Decís cuál es el mejor y justificás"
+        ],
+        "items": []
+      },
+      {
+        "title": "Emprender en Colombia",
+        "tipo": "Q&A — El Filmmaker te pregunta",
+        "ilus": "svgQA",
+        "gancho": "Alex...¿es verdad que Colombia es lindo para vivir pero muy malo para emprender?",
+        "ref": "",
+        "editorPone": false,
+        "steps": [
+          "Explicás y justificás por qué"
+        ],
+        "items": []
+      },
+      {
+        "title": "Pros y Contras de Medellín",
+        "tipo": "Q&A — El Filmmaker te pregunta",
+        "ilus": "svgQA",
+        "gancho": "Alex...PROS y CONTRAS de vivir en Medellín",
+        "ref": "",
+        "editorPone": false,
+        "steps": [
+          "Mencionás 3 contras",
+          "Mencionás 3 pros"
+        ],
+        "items": []
+      },
+      {
+        "title": "Puntuación ciudades de Colombia",
+        "tipo": "Q&A — El Filmmaker te pregunta",
+        "ilus": "svgRanking",
+        "gancho": "Alex...te digo una ciudad de Colombia y tú me das una puntuación del 1 al 10...",
+        "ref": "",
+        "editorPone": false,
+        "steps": [
+          "Breve descripción de cada ciudad",
+          "Le das un puntaje del 1 al 10"
+        ],
+        "items": [
+          "Barranquilla",
+          "Pereira",
+          "Cartagena",
+          "Bogotá",
+          "Medellín"
+        ]
+      },
+      {
+        "title": "ROLO vs. PAISA",
+        "tipo": "Q&A — El Filmmaker te pregunta",
+        "ilus": "svgQA",
+        "gancho": "Alex...¿cuál es la principal diferencia entre el ROLO y el PAISA?",
+        "ref": "",
+        "editorPone": false,
+        "steps": [
+          "Explicás la principal diferencia entre uno y otro"
+        ],
+        "items": []
+      },
+      {
+        "title": "Bogotá vs. Medellín",
+        "tipo": "Q&A — El Filmmaker te pregunta",
+        "ilus": "svgQA",
+        "gancho": "Alex...¿qué es mejor BOGOTÁ o MEDELLÍN?",
+        "ref": "",
+        "editorPone": false,
+        "steps": [
+          "Explicás hace cuántos años vivís en Colombia",
+          "Hablás de lo bueno de Bogotá",
+          "Hablás de lo bueno de Medellín y decís cuál es mejor"
+        ],
+        "items": []
+      },
+      {
+        "title": "Mejores ciudades de Colombia",
+        "tipo": "Q&A — El Filmmaker te pregunta",
+        "ilus": "svgQA",
+        "gancho": "Alex...¿cuáles son las mejores ciudades de Colombia para vivir?",
+        "ref": "",
+        "editorPone": false,
+        "steps": [
+          "Empezás con: 'yo que llevo 5 años visitando el país...'",
+          "Mencionás cada ciudad de menos a más con descripción breve"
+        ],
+        "items": []
+      },
+      {
+        "title": "Colombianas vs. Españolas",
+        "tipo": "Q&A — El Filmmaker te pregunta",
+        "ilus": "svgQA",
+        "gancho": "Alex...¿cuál es la principal diferencia entre la mujer Colombiana y la mujer Española?",
+        "ref": "",
+        "editorPone": false,
+        "steps": [
+          "Explicás la diferencia dando un ejemplo concreto"
+        ],
+        "items": []
+      }
     ]
-  }
-
-,
+  },
   {
-    fecha: "Miércoles 8 de abril",
-    videos: [
-      {title:"Bogotá vs. Medellín",ref:"",tipo:"Q&A — El Filmmaker te pregunta",ilus:"svgLookFilmmaker",gancho:"¿Qué es mejor, Bogotá o Medellín?",editorPone:false,steps:["Comenta sobre las diferencias entre las dos ciudades"],items:[]},
-      {title:"MIEDO = A, B o C",ref:"",tipo:"Mirás directo a la cámara",ilus:"svgTemuestra",gancho:"¿Qué te da más miedo?",editorPone:false,steps:["Las alturas","Las cucarachas","¿O pasar el resto de tu vida en el mismo empleo?"],items:[]},
-      {title:"¿Qué preferís?",ref:"",tipo:"Entrevista callejera",ilus:"svgEntrevista",gancho:"¿Qué preferís... Bogotá o Medellín?",editorPone:false,steps:["Preguntás... y escuchás la respuesta"],items:[]},
-      {title:"Explicar el ÉXITO",ref:"",tipo:"Mirás directo a la cámara",ilus:"svgPizarra",gancho:"¿Sabías que el éxito es proporcional a la cantidad de veces que fracasás?",editorPone:false,steps:["Explicás mientras lo mostrás en la pizarra"],items:[]}
+    "fecha": "Miércoles 8 de abril",
+    "videos": [
+      {
+        "title": "Bogotá vs. Medellín",
+        "ref": "",
+        "tipo": "Q&A — El Filmmaker te pregunta",
+        "ilus": "svgLookFilmmaker",
+        "gancho": "¿Qué es mejor, Bogotá o Medellín?",
+        "editorPone": false,
+        "steps": [
+          "Comenta sobre las diferencias entre las dos ciudades"
+        ],
+        "items": []
+      },
+      {
+        "title": "MIEDO = A, B o C",
+        "ref": "",
+        "tipo": "Mirás directo a la cámara",
+        "ilus": "svgTemuestra",
+        "gancho": "¿Qué te da más miedo?",
+        "editorPone": false,
+        "steps": [
+          "Las alturas",
+          "Las cucarachas",
+          "¿O pasar el resto de tu vida en el mismo empleo?"
+        ],
+        "items": []
+      },
+      {
+        "title": "¿Qué preferís?",
+        "ref": "",
+        "tipo": "Entrevista callejera",
+        "ilus": "svgEntrevista",
+        "gancho": "¿Qué preferís... Bogotá o Medellín?",
+        "editorPone": false,
+        "steps": [
+          "Preguntás... y escuchás la respuesta"
+        ],
+        "items": []
+      },
+      {
+        "title": "Explicar el ÉXITO",
+        "ref": "",
+        "tipo": "Mirás directo a la cámara",
+        "ilus": "svgPizarra",
+        "gancho": "¿Sabías que el éxito es proporcional a la cantidad de veces que fracasás?",
+        "editorPone": false,
+        "steps": [
+          "Explicás mientras lo mostrás en la pizarra"
+        ],
+        "items": []
+      }
     ]
+  },
+  {
+    "fecha": "Jueves 9 de abril",
+    "videos": [
+      {
+        "title": "5 mejores ciudades de Colombia",
+        "ref": "https://drive.google.com/file/d/1dO8ljBkk1mtlXxTZuVnO9htLPz6VfSQA/view?usp=sharing",
+        "tipo": "Alguien te graba — mirás al Filmmaker",
+        "ilus": "svgLookFilmmaker",
+        "gancho": "Las mejores 5 ciudades de Colombia son...",
+        "editorPone": false,
+        "steps": [
+          "Di que has estado visitando Colombia por 5 años",
+          "Y menciona CADA ciudad del TOP 5 de menos a más"
+        ],
+        "items": []
+      }
+    ]
+  },
+  {
+    "fecha": "Viernes 10 de abril",
+    "videos": []
   }
 ];
 
@@ -853,5 +1163,6 @@ function saveData(){
 })();
 
 </script>
-</body>
-</html>
+
+
+</body></html>
