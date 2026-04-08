@@ -92,6 +92,76 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min
 .fin-ttl{font-family:'Syne',sans-serif;font-size:38px;font-weight:800;color:var(--accent);margin-bottom:.4rem;}
 .fin-sub{color:var(--muted);font-size:15px;margin-bottom:2rem;}
 .fin-back{background:none;border:1px solid var(--border);color:var(--muted);padding:12px 28px;border-radius:100px;font-family:'DM Sans',sans-serif;font-size:14px;cursor:pointer;}
+
+/* ── ADMIN ── */
+#adminPin{display:none;position:fixed;inset:0;background:rgba(0,0,0,.95);z-index:300;align-items:center;justify-content:center;flex-direction:column;gap:1rem;}
+#adminPin.open{display:flex;}
+.pin-title{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:var(--text);}
+.pin-sub{font-size:14px;color:var(--muted);}
+.pin-dots{display:flex;gap:12px;margin:.5rem 0;}
+.pin-dot{width:16px;height:16px;border-radius:50%;background:var(--card2);border:2px solid var(--border);}
+.pin-dot.filled{background:var(--accent);border-color:var(--accent);}
+.pin-pad{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;max-width:240px;width:100%;}
+.pin-btn{background:var(--card);border:1px solid var(--border);color:var(--text);font-family:'Syne',sans-serif;font-size:22px;font-weight:700;padding:18px;border-radius:14px;cursor:pointer;text-align:center;}
+.pin-btn:active{background:var(--card2);}
+.pin-del{font-size:18px;}
+.pin-error{color:var(--red);font-size:13px;min-height:18px;}
+
+#admin{padding:0;max-width:480px;margin:0 auto;}
+#admin.active{display:block;}
+.admin-topbar{position:sticky;top:0;z-index:50;background:rgba(10,10,10,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:10px 16px;gap:12px;}
+.admin-title{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;flex:1;color:var(--accent);}
+.admin-exit{background:none;border:1px solid var(--border);color:var(--muted);font-size:13px;padding:5px 13px;border-radius:100px;cursor:pointer;font-family:'DM Sans',sans-serif;}
+.admin-body{padding:1.25rem;}
+.admin-day{background:var(--card);border:1px solid var(--border);border-radius:14px;margin-bottom:1rem;overflow:hidden;}
+.admin-day-header{display:flex;align-items:center;padding:.9rem 1.1rem;gap:10px;cursor:pointer;}
+.admin-day-date{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;flex:1;color:var(--text);}
+.admin-day-count{font-size:12px;color:var(--muted);}
+.admin-day-toggle{color:var(--muted);font-size:18px;transition:transform .2s;}
+.admin-day-toggle.open{transform:rotate(180deg);}
+.admin-day-del{background:none;border:none;color:var(--muted);font-size:18px;cursor:pointer;padding:4px 8px;}
+.admin-day-del:active{color:var(--red);}
+.admin-videos{display:none;border-top:1px solid var(--border);}
+.admin-videos.open{display:block;}
+.admin-video{display:flex;align-items:center;gap:10px;padding:.75rem 1.1rem;border-bottom:1px solid var(--border);}
+.admin-video:last-child{border-bottom:none;}
+.admin-video-num{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;color:var(--accent);min-width:22px;}
+.admin-video-info{flex:1;}
+.admin-video-title{font-size:14px;font-weight:500;color:var(--text);}
+.admin-video-sub{font-size:11px;color:var(--muted);margin-top:1px;}
+.admin-video-edit{background:none;border:1px solid var(--border);color:var(--muted);font-size:11px;padding:4px 10px;border-radius:100px;cursor:pointer;font-family:'DM Sans',sans-serif;flex-shrink:0;}
+.admin-video-del{background:none;border:none;color:var(--muted);font-size:16px;cursor:pointer;padding:4px;flex-shrink:0;}
+.admin-add-day{display:flex;gap:8px;margin-top:1rem;}
+.admin-input{flex:1;background:var(--card2);border:1.5px solid var(--border);color:var(--text);font-size:14px;padding:10px 14px;border-radius:10px;font-family:'DM Sans',sans-serif;}
+.admin-input:focus{outline:none;border-color:rgba(200,241,53,.4);}
+.admin-btn{background:var(--accent);color:#000;border:none;padding:10px 16px;border-radius:10px;font-family:'Syne',sans-serif;font-size:14px;font-weight:700;cursor:pointer;flex-shrink:0;}
+
+/* ADMIN VIDEO FORM */
+#adminForm{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:200;overflow-y:auto;}
+#adminForm.open{display:block;}
+.af-topbar{position:sticky;top:0;background:rgba(10,10,10,.97);border-bottom:1px solid var(--border);padding:12px 1.25rem;display:flex;align-items:center;gap:12px;}
+.af-back{background:none;border:1px solid var(--border);color:var(--muted);font-size:13px;padding:5px 13px;border-radius:100px;cursor:pointer;font-family:'DM Sans',sans-serif;}
+.af-title{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;flex:1;color:var(--text);}
+.af-save{background:var(--accent);color:#000;border:none;font-size:13px;padding:6px 16px;border-radius:100px;cursor:pointer;font-family:'Syne',sans-serif;font-weight:700;}
+.af-body{padding:1.25rem;max-width:480px;margin:0 auto;}
+.af-section{margin-bottom:1.25rem;}
+.af-label{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:.5rem;}
+.af-input{width:100%;background:var(--card2);border:1.5px solid var(--border);color:var(--text);font-size:15px;padding:12px 14px;border-radius:12px;font-family:'DM Sans',sans-serif;resize:vertical;line-height:1.5;}
+.af-input:focus{outline:none;border-color:rgba(200,241,53,.4);}
+.af-input::placeholder{color:var(--muted);}
+.af-opts{display:flex;flex-wrap:wrap;gap:7px;}
+.af-opt{background:var(--card2);border:1.5px solid var(--border);color:#bbb;font-size:13px;padding:7px 14px;border-radius:100px;cursor:pointer;font-family:'DM Sans',sans-serif;}
+.af-opt.sel{background:rgba(200,241,53,.12);border-color:var(--accent);color:var(--accent);font-weight:500;}
+.af-tag-row{display:flex;gap:8px;margin-bottom:8px;}
+.af-tag-input{flex:1;background:var(--card2);border:1.5px solid var(--border);color:var(--text);font-size:14px;padding:9px 14px;border-radius:10px;font-family:'DM Sans',sans-serif;}
+.af-add-tag{background:var(--accent);color:#000;border:none;padding:9px 14px;border-radius:10px;font-family:'Syne',sans-serif;font-size:14px;font-weight:700;cursor:pointer;}
+.af-tags{display:flex;flex-wrap:wrap;gap:6px;}
+.af-tag{background:var(--card2);border:1px solid var(--border);color:#ccc;font-size:13px;padding:4px 10px 4px 12px;border-radius:100px;display:flex;align-items:center;gap:5px;}
+.af-tag button{background:none;border:none;color:var(--muted);cursor:pointer;font-size:15px;line-height:1;padding:0;}
+
+/* Admin trigger — hidden in splash */
+#adminTrigger{position:fixed;bottom:16px;right:16px;width:44px;height:44px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:100;}
+#adminTrigger:active{background:rgba(200,241,53,.1);}
 </style>
 </head>
 <body>
@@ -132,6 +202,125 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min
   <div class="fin-sub" id="finSub">Todos los videos grabados.</div>
   <button class="fin-back" id="finBack">← Volver a los días</button>
 </div>
+
+
+<!-- ADMIN PIN -->
+<div id="adminPin">
+  <div class="pin-title">Modo Admin</div>
+  <div class="pin-sub">Ingresá el PIN</div>
+  <div class="pin-dots" id="pinDots">
+    <div class="pin-dot"></div>
+    <div class="pin-dot"></div>
+    <div class="pin-dot"></div>
+    <div class="pin-dot"></div>
+  </div>
+  <div class="pin-error" id="pinError"></div>
+  <div class="pin-pad">
+    <button class="pin-btn" data-n="1">1</button>
+    <button class="pin-btn" data-n="2">2</button>
+    <button class="pin-btn" data-n="3">3</button>
+    <button class="pin-btn" data-n="4">4</button>
+    <button class="pin-btn" data-n="5">5</button>
+    <button class="pin-btn" data-n="6">6</button>
+    <button class="pin-btn" data-n="7">7</button>
+    <button class="pin-btn" data-n="8">8</button>
+    <button class="pin-btn" data-n="9">9</button>
+    <button class="pin-btn pin-del" data-n="del">⌫</button>
+    <button class="pin-btn" data-n="0">0</button>
+    <button class="pin-btn" data-n="ok">OK</button>
+  </div>
+</div>
+
+<!-- ADMIN PANEL -->
+<div id="admin" class="screen">
+  <div class="admin-topbar">
+    <div class="admin-title">⚙️ Admin</div>
+    <button class="admin-exit" id="adminExit">← Salir</button>
+  </div>
+  <div class="admin-body">
+    <div id="adminDaysList"></div>
+    <div class="admin-add-day">
+      <input class="admin-input" id="adminNewDayInput" placeholder="Nuevo día (ej: Jueves 10 de abril)" type="text"/>
+      <button class="admin-btn" id="adminAddDayBtn">+ Día</button>
+    </div>
+  </div>
+</div>
+
+<!-- ADMIN VIDEO FORM -->
+<div id="adminForm">
+  <div class="af-topbar">
+    <button class="af-back" id="afBack">← Volver</button>
+    <div class="af-title" id="afTitle">Nuevo video</div>
+    <button class="af-save" id="afSave">Guardar ✓</button>
+  </div>
+  <div class="af-body">
+    <div class="af-section">
+      <div class="af-label">Título *</div>
+      <textarea class="af-input" id="afTitleInput" placeholder="Ej: Bogotá vs Medellín" rows="1" style="min-height:44px;"></textarea>
+    </div>
+    <div class="af-section">
+      <div class="af-label">Video de referencia (link Drive)</div>
+      <input class="af-input" id="afRef" placeholder="https://drive.google.com/..." type="url" style="min-height:44px;resize:none;"/>
+    </div>
+    <div class="af-section">
+      <div class="af-label">Tipo de grabación *</div>
+      <div class="af-opts" id="afTipo">
+        <button class="af-opt" data-val="Alguien te graba — mirás al Filmmaker">🎥 Alguien te graba</button>
+        <button class="af-opt" data-val="Mirás directo a la cámara">👁 Directo a cámara</button>
+        <button class="af-opt" data-val="Q&A — El Filmmaker te pregunta">🎙 Q&A</button>
+        <button class="af-opt" data-val="Señalás con el dedo hacia arriba">☝️ Señalar arriba</button>
+        <button class="af-opt" data-val="POV — cámara es el punto de vista">🎥 POV</button>
+        <button class="af-opt" data-val="Reaction">😮 Reaction</button>
+        <button class="af-opt" data-val="Video selfie">📱 Video selfie</button>
+        <button class="af-opt" data-val="Entrevista callejera">🎙 Entrevista</button>
+        <button class="af-opt" data-val="Pizarra">📋 Pizarra</button>
+      </div>
+    </div>
+    <div class="af-section">
+      <div class="af-label">Ilustración *</div>
+      <div class="af-opts" id="afIlus">
+        <button class="af-opt" data-val="svgVideoSelfie">📱 Video selfie</button>
+        <button class="af-opt" data-val="svgPOV">🎥 POV</button>
+        <button class="af-opt" data-val="svgLookFilmmaker">👁 Mirando al Filmmaker</button>
+        <button class="af-opt" data-val="svgTemuestra">💻 Te muestro con compu</button>
+        <button class="af-opt" data-val="svgPantalla">🖥 Te muestro en pantalla</button>
+        <button class="af-opt" data-val="svgVersus">⚔️ Versus</button>
+        <button class="af-opt" data-val="svgEntrevista">🎙 Entrevista callejera</button>
+        <button class="af-opt" data-val="svgPizarra">📋 Pizarra</button>
+        <button class="af-opt" data-val="svgReaction">😮 Reaction</button>
+      </div>
+    </div>
+    <div class="af-section">
+      <div class="af-label">Gancho (texto exacto)</div>
+      <textarea class="af-input" id="afGancho" placeholder="Ej: ¿Sabías que...?" rows="2" style="min-height:56px;"></textarea>
+      <div style="margin-top:8px;">
+        <div class="af-label">¿Lo pone el editor en pantalla?</div>
+        <div class="af-opts" id="afEditor">
+          <button class="af-opt" data-val="true">SÍ — lo pone el editor</button>
+          <button class="af-opt" data-val="false">NO — vos lo decís</button>
+        </div>
+      </div>
+    </div>
+    <div class="af-section">
+      <div class="af-label">Pasos</div>
+      <textarea class="af-input" id="afP1" placeholder="Paso 1 *" rows="1" style="min-height:44px;margin-bottom:6px;"></textarea>
+      <textarea class="af-input" id="afP2" placeholder="Paso 2 (opcional)" rows="1" style="min-height:44px;margin-bottom:6px;"></textarea>
+      <textarea class="af-input" id="afP3" placeholder="Paso 3 (opcional)" rows="1" style="min-height:44px;"></textarea>
+    </div>
+    <div class="af-section">
+      <div class="af-label">Ítems (si hay lista)</div>
+      <div class="af-tag-row">
+        <input class="af-tag-input" id="afItemInput" placeholder="Escribí un ítem y tocá +" type="text"/>
+        <button class="af-add-tag" id="afAddItem">+</button>
+      </div>
+      <div class="af-tags" id="afItemsList"></div>
+    </div>
+    <div style="height:2rem;"></div>
+  </div>
+</div>
+
+<!-- ADMIN TRIGGER (hidden button bottom right) -->
+<div id="adminTrigger" title="Admin">⚙</div>
 
 <script>
 // ─── SVG HELPERS ──────────────────────────────────────────────
@@ -361,6 +550,266 @@ document.addEventListener('click', function(e){
 // init
 renderSplash();
 show('splash');
+
+
+// ─── ADMIN ────────────────────────────────────────────────────
+var ADMIN_PIN = '1234'; // ← CAMBIÁ ESTO POR TU PIN
+var pinBuffer = '';
+var afEditDay = -1;
+var afEditVid = -1;
+var afItems = [];
+
+// PIN screen
+document.getElementById('adminTrigger').addEventListener('click', function(){
+  pinBuffer = '';
+  updatePinDots();
+  document.getElementById('pinError').textContent = '';
+  document.getElementById('adminPin').classList.add('open');
+});
+
+document.getElementById('adminPin').querySelectorAll('.pin-btn').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var n = btn.dataset.n;
+    if(n === 'del'){ pinBuffer = pinBuffer.slice(0,-1); }
+    else if(n === 'ok'){
+      if(pinBuffer === ADMIN_PIN){
+        document.getElementById('adminPin').classList.remove('open');
+        renderAdminPanel();
+        showScreen('admin');
+      } else {
+        document.getElementById('pinError').textContent = 'PIN incorrecto';
+        pinBuffer = '';
+      }
+    } else {
+      if(pinBuffer.length < 4) pinBuffer += n;
+    }
+    updatePinDots();
+  });
+});
+
+function updatePinDots(){
+  document.getElementById('pinDots').querySelectorAll('.pin-dot').forEach(function(dot, i){
+    dot.classList.toggle('filled', i < pinBuffer.length);
+  });
+}
+
+// Show/hide screens (extended version for admin)
+function showScreen(id){
+  ['splash','vlist','viewer','finish','admin'].forEach(function(s){
+    document.getElementById(s).classList.remove('active');
+  });
+  document.getElementById(id).classList.add('active');
+  window.scrollTo(0,0);
+}
+
+document.getElementById('adminExit').addEventListener('click', function(){
+  showScreen('splash');
+  renderSplash();
+});
+
+// ── RENDER ADMIN PANEL ────────────────────────────────────────
+function renderAdminPanel(){
+  var container = document.getElementById('adminDaysList');
+  if(!DIAS.length){ container.innerHTML = '<div style="color:var(--muted);padding:1rem;">No hay días cargados.</div>'; return; }
+  container.innerHTML = DIAS.map(function(dia, di){
+    var vcount = dia.videos.length;
+    return '<div class="admin-day" data-di="'+di+'">'
+      +'<div class="admin-day-header" data-toggle="'+di+'">'
+        +'<div class="admin-day-date">'+dia.fecha+'</div>'
+        +'<div class="admin-day-count">'+vcount+' videos</div>'
+        +'<button class="admin-day-del" data-daydel="'+di+'">✕</button>'
+        +'<span class="admin-day-toggle" id="toggle-'+di+'">▼</span>'
+      +'</div>'
+      +'<div class="admin-videos" id="avids-'+di+'">'
+        +dia.videos.map(function(v, vi){
+          return '<div class="admin-video">'
+            +'<div class="admin-video-num">'+(vi+1)+'</div>'
+            +'<div class="admin-video-info">'
+              +'<div class="admin-video-title">'+v.title+'</div>'
+              +'<div class="admin-video-sub">'+v.tipo+'</div>'
+            +'</div>'
+            +'<button class="admin-video-edit" data-di="'+di+'" data-vi="'+vi+'">Editar</button>'
+            +'<button class="admin-video-del" data-di="'+di+'" data-vi="'+vi+'">✕</button>'
+          +'</div>';
+        }).join('')
+        +'<div style="padding:.75rem 1.1rem;border-top:1px solid var(--border);">'
+          +'<button class="admin-btn" data-addvid="'+di+'" style="width:100%;padding:10px;font-size:13px;">+ Agregar video a este día</button>'
+        +'</div>'
+      +'</div>'
+    +'</div>';
+  }).join('');
+
+  // Toggle day
+  container.querySelectorAll('[data-toggle]').forEach(function(el){
+    el.addEventListener('click', function(e){
+      if(e.target.dataset.daydel !== undefined) return;
+      var di = parseInt(el.dataset.toggle);
+      var vids = document.getElementById('avids-'+di);
+      var tog = document.getElementById('toggle-'+di);
+      vids.classList.toggle('open');
+      tog.classList.toggle('open');
+    });
+  });
+
+  // Delete day
+  container.querySelectorAll('[data-daydel]').forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      e.stopPropagation();
+      var di = parseInt(btn.dataset.daydel);
+      if(confirm('¿Borrar el día "'+DIAS[di].fecha+'" y todos sus videos?')){
+        DIAS.splice(di, 1);
+        saveData();
+        renderAdminPanel();
+      }
+    });
+  });
+
+  // Edit video
+  container.querySelectorAll('.admin-video-edit').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      openAdminForm(parseInt(btn.dataset.di), parseInt(btn.dataset.vi));
+    });
+  });
+
+  // Delete video
+  container.querySelectorAll('.admin-video-del').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var di = parseInt(btn.dataset.di), vi = parseInt(btn.dataset.vi);
+      if(confirm('¿Borrar "'+DIAS[di].videos[vi].title+'"?')){
+        DIAS[di].videos.splice(vi, 1);
+        saveData();
+        renderAdminPanel();
+      }
+    });
+  });
+
+  // Add video to day
+  container.querySelectorAll('[data-addvid]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      openAdminForm(parseInt(btn.dataset.addvid), -1);
+    });
+  });
+}
+
+// Add new day
+document.getElementById('adminAddDayBtn').addEventListener('click', function(){
+  var val = document.getElementById('adminNewDayInput').value.trim();
+  if(!val) return;
+  DIAS.push({fecha: val, videos: []});
+  document.getElementById('adminNewDayInput').value = '';
+  saveData();
+  renderAdminPanel();
+});
+document.getElementById('adminNewDayInput').addEventListener('keydown', function(e){
+  if(e.key==='Enter'){e.preventDefault();document.getElementById('adminAddDayBtn').click();}
+});
+
+// ── ADMIN VIDEO FORM ──────────────────────────────────────────
+function openAdminForm(di, vi){
+  afEditDay = di;
+  afEditVid = vi;
+  afItems = [];
+
+  // clear
+  ['afTitleInput','afGancho','afRef','afP1','afP2','afP3'].forEach(function(id){ document.getElementById(id).value=''; });
+  ['afTipo','afIlus','afEditor'].forEach(function(id){
+    document.getElementById(id).querySelectorAll('.af-opt').forEach(function(b){ b.classList.remove('sel'); });
+  });
+  document.getElementById('afItemsList').innerHTML = '';
+
+  if(vi >= 0){
+    var v = DIAS[di].videos[vi];
+    document.getElementById('afTitle').textContent = 'Editar video';
+    document.getElementById('afTitleInput').value = v.title || '';
+    document.getElementById('afRef').value = v.ref || '';
+    document.getElementById('afGancho').value = v.gancho || '';
+    setAfOpt('afTipo', v.tipo || '');
+    setAfOpt('afIlus', v.ilus || '');
+    setAfOpt('afEditor', String(v.editorPone));
+    document.getElementById('afP1').value = (v.steps && v.steps[0]) || '';
+    document.getElementById('afP2').value = (v.steps && v.steps[1]) || '';
+    document.getElementById('afP3').value = (v.steps && v.steps[2]) || '';
+    afItems = (v.items || []).slice();
+  } else {
+    document.getElementById('afTitle').textContent = 'Nuevo video — '+DIAS[di].fecha;
+  }
+  renderAfItems();
+  document.getElementById('adminForm').classList.add('open');
+}
+
+function setAfOpt(groupId, val){
+  document.getElementById(groupId).querySelectorAll('.af-opt').forEach(function(b){
+    b.classList.toggle('sel', b.dataset.val === val);
+  });
+}
+function getAfOpt(groupId){
+  var sel = document.getElementById(groupId).querySelector('.af-opt.sel');
+  return sel ? sel.dataset.val : '';
+}
+
+document.querySelectorAll('.af-opts').forEach(function(group){
+  group.querySelectorAll('.af-opt').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      group.querySelectorAll('.af-opt').forEach(function(b){ b.classList.remove('sel'); });
+      btn.classList.add('sel');
+    });
+  });
+});
+
+function renderAfItems(){
+  var el = document.getElementById('afItemsList');
+  el.innerHTML = afItems.map(function(item, i){
+    return '<span class="af-tag">'+item+'<button data-afi="'+i+'">×</button></span>';
+  }).join('');
+  el.querySelectorAll('button').forEach(function(btn){
+    btn.addEventListener('click', function(){ afItems.splice(parseInt(btn.dataset.afi),1); renderAfItems(); });
+  });
+}
+document.getElementById('afAddItem').addEventListener('click', function(){
+  var inp = document.getElementById('afItemInput');
+  if(inp.value.trim()){ afItems.push(inp.value.trim()); inp.value=''; renderAfItems(); }
+});
+document.getElementById('afItemInput').addEventListener('keydown', function(e){
+  if(e.key==='Enter'){e.preventDefault();document.getElementById('afAddItem').click();}
+});
+
+document.getElementById('afBack').addEventListener('click', function(){
+  document.getElementById('adminForm').classList.remove('open');
+});
+
+document.getElementById('afSave').addEventListener('click', function(){
+  var title = document.getElementById('afTitleInput').value.trim();
+  if(!title){ alert('El título es obligatorio'); return; }
+  var v = {
+    title: title,
+    ref: document.getElementById('afRef').value.trim(),
+    tipo: getAfOpt('afTipo') || 'Alguien te graba — mirás al Filmmaker',
+    ilus: getAfOpt('afIlus') || 'svgLookFilmmaker',
+    gancho: document.getElementById('afGancho').value.trim(),
+    editorPone: getAfOpt('afEditor') === 'true',
+    steps: [document.getElementById('afP1').value.trim(), document.getElementById('afP2').value.trim(), document.getElementById('afP3').value.trim()].filter(Boolean),
+    items: afItems.slice()
+  };
+  if(afEditVid >= 0){ DIAS[afEditDay].videos[afEditVid] = v; }
+  else { DIAS[afEditDay].videos.push(v); }
+  saveData();
+  document.getElementById('adminForm').classList.remove('open');
+  renderAdminPanel();
+});
+
+// ── SAVE DATA ─────────────────────────────────────────────────
+function saveData(){
+  localStorage.setItem('pg_dias', JSON.stringify(DIAS));
+}
+
+// ── LOAD SAVED DIAS on init ────────────────────────────────────
+(function(){
+  var saved = localStorage.getItem('pg_dias');
+  if(saved){
+    try{ var parsed = JSON.parse(saved); if(parsed && parsed.length) DIAS.splice(0, DIAS.length, ...parsed); } catch(e){}
+  }
+})();
+
 </script>
 </body>
 </html>
